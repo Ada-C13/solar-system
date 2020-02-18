@@ -14,3 +14,7 @@ solar_system.add_planet(earth)
 
 list = solar_system.list_planets
 puts list
+
+found_planet = solar_system.find_planet_by_name('Earth')
+
+puts found_planet
