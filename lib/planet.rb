@@ -6,9 +6,9 @@ class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
     @color = color
-    @mass_kg = mass_kg
-    @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
+    mass_kg > 0 ? @mass_kg = mass_kg : raise(ArgumentError, "Mass is less than 0")
+    distance_from_sun_km > 0 ? @distance_from_sun_km = distance_from_sun_km : raise(ArgumentError, "Distance is less than 0")
   end
 
   def summary
@@ -17,4 +17,4 @@ class Planet
     The #{@name}'s color is #{color} and a fun fact is: #{@fun_fact}
     "
   end
-end
+end 
