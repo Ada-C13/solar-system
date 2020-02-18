@@ -12,7 +12,7 @@ class Planet
 	end
 
 	def summary()
-		return "#{@name} is our home! We love how #{color} it is! #{@name} is #{mass_kg} kg and #{distance_from_sun_km} km from the sun. You might be surprised to find that #{fun_fact}."
+		return "#{@name} is a wonderful planet! It is a beautiful #{color} color! #{@name} has a mass of #{mass_kg} kg and is #{distance_from_sun_km} km from the sun. You might be surprised to find that: #{fun_fact}."
 	end
 
 	def mass_kg=(value)
