@@ -9,5 +9,10 @@ class Planet
 		@distance_from_sun_km = distance_from_sun_km
 		@fun_fact = fun_fact
 	end
-	
+
+	def summary
+		summary = "#{ @name } is a #{ @color } planet weighing #{ mass_kg } kg. It is located #{ @distance_from_sun_km } km from the sun. Fun Fact: #{ @fun_fact }."
+		return summary
+	end
+
 end
