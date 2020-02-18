@@ -21,7 +21,8 @@ class SolarSystem
 	end
 
 	def find_planet_by_name(planet_name)
-		@planets.detect {|planet| planet.name.downcase.include? planet_name.downcase}
+		@planets.detect {|planet| 
+			planet.name.downcase.include? planet_name.downcase}
 	end
 	
 	def distance_between(planet_one, planet_two)

@@ -12,6 +12,14 @@ def display(solar_system)
 	end
 end
 
+def verify_number(data_to_verify)
+  until (Float(data_to_verify) rescue nil) != nil && data_to_verify.to_f > 0
+    puts "Input not accepted, please enter a number:"
+    data_to_verify = gets.chomp
+  end
+  data_to_verify.to_f
+end
+
 def user_create_planet(solar_system)
 	puts "What is the name of the planet?"
 	user_planet_name = gets.chomp.capitalize
@@ -20,15 +28,15 @@ def user_create_planet(solar_system)
 	user_planet_color = gets.chomp.downcase
 
 	puts "What is its mass in kilograms?"
-	user_planet_masskg = gets.chomp.to_f
+	user_planet_mass = verify_number(gets.chomp)
 
 	puts "What distance is the planet from the sun (in kilometers)?"
-	user_planet_distance = gets.chomp.to_f
+	user_planet_distance = verify_number(gets.chomp)
 
 	puts "Can you share a fun fact about #{user_planet_name}?"
 	user_planet_fun_fact = gets.chomp.capitalize
 
-	user_planet = Planet.new(user_planet_name,user_planet_color, user_planet_masskg,user_planet_distance,user_planet_fun_fact)
+	user_planet = Planet.new(user_planet_name,user_planet_color, user_planet_mass,user_planet_distance,user_planet_fun_fact)
 	solar_system.add_planet(user_planet)
 end
 
@@ -75,4 +83,4 @@ def main
 
 end
 
-puts main
+main
