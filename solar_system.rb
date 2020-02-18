@@ -14,7 +14,7 @@ class SolarSystem
 	def list_planets
 		planet_list = "Planets orbiting #{ @star_name }\n"
 		@planets.length.times do |add|
-			planet_list += "#{ add + 1 }. #{ @planets[add].name }"
+			planet_list += "#{ add + 1 }. #{ @planets[add].name }\n"
 		end
 
 		return planet_list
@@ -22,7 +22,11 @@ class SolarSystem
 
 	def find_planet_by_name(planet_string)
 		@planets.each do |planet|
-			return planet if planet_string.casecmp?(planet.name)
+			if planet_string == planet.name.downcase
+				return planet
+			end
 		end
+		return "Planet could not be found in this solar system."
 	end
+
 end
