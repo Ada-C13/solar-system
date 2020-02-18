@@ -14,7 +14,7 @@ earth_args = ['Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to su
 mars_args = ['Mars', 'red', 6.42e23, 2.279e8, 'It has two moons']
 venus_args = ['Venus', 'yellow', 4.87e24, 1.082e8, 'Sometimes referred to as morningstar']
 
-  it "correctly adds objects to the SolarSystem object" do
+  it "adds objects to the SolarSystem object" do
     solar_system = SolarSystem.new('Sol')
     solar_system.add_planet(Planet.new(*earth_args))
     expect(solar_system.find_planet_by_name("Earth")).must_be_instance_of(Planet)
@@ -28,4 +28,13 @@ venus_args = ['Venus', 'yellow', 4.87e24, 1.082e8, 'Sometimes referred to as mor
     expect(solar_system.find_planet_by_name("eArTh").name).must_equal("Earth")
   end
 
+  it "calculates the distance between two planets" do
+    solar_system = SolarSystem.new('Tinysol')
+    puppyplanet = Planet.new('puppyplanet', 'pink', 6, 20, 'A tiny planet full of tiny puppies')
+    kittenplanet = Planet.new('kittenplanet', 'white', 10, 100, 'A slightly bigger planet full of tiny kittens')
+    solar_system.add_planet(puppyplanet)
+    solar_system.add_planet(kittenplanet)
+    expect(solar_system.distance_between(puppyplanet, kittenplanet).must_equal(80))
+  end
+  
 end 

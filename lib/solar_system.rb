@@ -24,4 +24,8 @@ class SolarSystem
     return match
   end
 
+  def distance_between(planet1, planet2)
+    return (planet1.distance_from_sun_km - planet2.distance_from_sun_km).abs
+  end
+
 end
