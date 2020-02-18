@@ -6,4 +6,9 @@ class SolarSystem
 		@planets = Array.new
 		@planet_num = 1
 	end
+
+	# take an instance of Planet as a parameter and add it to the list of planets
+	def add_planet(planet)
+		@planets << planet.name
+	end
 end
