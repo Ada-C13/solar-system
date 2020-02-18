@@ -1,7 +1,7 @@
 require 'pry'
 
 class SolarSystem
-	attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact, :star_name, :planets
+	attr_reader :star_name, :planets
 
 	def initialize(star_name)
 		@star_name = star_name
