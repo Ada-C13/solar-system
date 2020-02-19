@@ -30,10 +30,10 @@ class SolarSystem
         
         planets.each do |item|
             if item.name == string
-                return item
+                return item #.name
             end
         end
-        # cannot find planet scenario
+        # cannot find planet scenario, needs to handle nil summary
         if planets.include?(string) == false
             return "Planet not found"
         end
