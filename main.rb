@@ -49,6 +49,19 @@ def add_planet_from_user(system)
   return system.add_planet(new_planet)
 end
 
+def find_difference_using_input(system)
+  puts "Let's find out the difference of the distances of two planets from the #{system.star_name}!"
+
+  print "What's the name of the first planet?: "
+  planet_one = gets.chomp
+  print "And the second planet?: "
+  planet_two = gets.chomp
+
+  first = system.find_planet_by_name(planet_one)
+  second = system.find_planet_by_name(planet_two)
+  puts "The distance between #{first.name} and #{second.name} is #{system.find_difference(first, second)} km."
+end
+
 def main(system)
   puts "Hi there and welcome to the Solar System!"
   puts "We have lots of information about it and I can't wait to share it all with you."
@@ -57,7 +70,7 @@ def main(system)
 
   until answer == "exit"
     puts "\nWhat would you like to do next?:"
-    puts "List planets: list\nPlanet details: details\nAdd Planet: add\nExit: exit"
+    puts "List Planets: list\nPlanet details: details\nAdd Planet: add\nFind Difference of Distance from the #{system.star_name}: difference\nExit: exit"
     answer = gets.chomp
     case answer
       when "list"
@@ -66,6 +79,8 @@ def main(system)
         puts planet_details(system)
       when "add"
         add_planet_from_user(system)
+      when "difference"
+        find_difference_using_input(system)
       when "exit"
         puts "Alright! Goodbye!"
         return
