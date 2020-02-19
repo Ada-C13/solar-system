@@ -19,6 +19,7 @@ class SolarSystem
     @planets.each_with_index do |planet, index|
       planet_string_list += "\n#{index + 1}: #{planet.name}"
     end
+    
     return planet_string_list
   end
   
@@ -29,7 +30,7 @@ class SolarSystem
     found_planet = @planets.select { |planet| planet.name == planet_parameter } # returns an array
 
       if found_planet.empty?
-      # do something cool
+        return "#{planet_parameter} has yet to be discovered in #{@star_name}."
       end
 
       if found_planet.length > 1
