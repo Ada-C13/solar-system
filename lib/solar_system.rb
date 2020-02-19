@@ -24,7 +24,7 @@ class SolarSystem
 		raise ArgumentError.new("Argument must be a string") unless planet_name.is_a? String
 
 		@planets.each do |planet|
-			return planet.summary if planet.name.downcase == planet_name.downcase
+			return planet if planet.name.downcase == planet_name.downcase
 		end
 	end
 end
