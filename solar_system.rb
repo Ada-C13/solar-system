@@ -11,6 +11,7 @@ class SolarSystem
 		@planets << planet
 	end
 
+	# Generate a current list of planets added to solar system.
 	def list_planets
 		planet_list = "Planets orbiting #{ @star_name }\n"
 		@planets.length.times do |add|
@@ -20,9 +21,10 @@ class SolarSystem
 		return planet_list
 	end
 
+	# Locates a planet by name.
 	def find_planet_by_name(planet_string)
 		@planets.each do |planet|
-			if planet_string == planet.name.downcase
+			if planet_string.downcase == planet.name.downcase
 				return planet
 			end
 		end
