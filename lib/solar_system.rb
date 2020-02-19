@@ -48,10 +48,22 @@ class SolarSystem
   def distance_between(planet_one, planet_two) # => 2 planet names
     planet_one = find_planet_by_name(planet_one).distance_from_sun_km  
     planet_two = find_planet_by_name(planet_two).distance_from_sun_km 
-    
+
     distance = (planet_one - planet_two).abs
 
     return distance
+  end 
+
+  def is_found?(name)
+    planet_names = @planets.map do |planet| 
+      planet.name
+    end 
+
+    if planet_names.any?(name.capitalize)
+      return true 
+    else 
+      return false 
+    end 
   end 
 end 
 
