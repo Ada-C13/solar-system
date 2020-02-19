@@ -15,20 +15,18 @@ def show_planet(planet)
   puts "Fun Fact = #{planet.fun_fact}"  
 end
 
-def planet_details(solar_sys)
+def planet_details(solar)
   print "What is the name of the planet? "
   planet_name = gets.chomp
   begin
-    planet = solar_sys.find_planet_by_name(planet_name)
+    planet = solar.find_planet_by_name(planet_name)
     show_planet(planet)
   rescue
     puts "This planet is not in the system."    
   end
 end
 
-def main
-  solar   = SolarSystem.new("Sun")
-
+def add_all_planets(solar)
   mercury = Planet.new("Mercury", "red", 0.330e24, 57e6, "Mercury is the smallest planet in our Solar System.")
   venus   = Planet.new("Venus", "yellow", 4.87e24, 108e6, "Venus is the hottest planet in the Solar System.")
   earth   = Planet.new("Earth", "blue-green", 5.972e24, 1.496e8, "The Earth is the densest planet in the Solar System.")
@@ -48,6 +46,12 @@ def main
   solar.add_planet(uranus)
   solar.add_planet(neptune)
   solar.add_planet(pluto)
+end
+
+
+def main
+  solar = SolarSystem.new("Sun")
+  add_all_planets(solar)
 
   choice = ""
   while choice != "exit"
