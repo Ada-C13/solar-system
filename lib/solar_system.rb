@@ -1,3 +1,4 @@
+
 class SolarSystem
   attr_reader :star_name, :planets
   def initialize(star_name)
@@ -10,7 +11,7 @@ class SolarSystem
   end
 
   def list_planets
-    list = "Planets orbiting #{@star_name}: "
+    list = "List of Planets orbiting the #{@star_name}: "
     @planets.each_with_index do |planet, idx|
       list += "\n#{idx + 1}. #{planet.name}"
     end
@@ -20,12 +21,16 @@ class SolarSystem
 
   def find_planet_by_name(find_planet)
     matching_planets = @planets.select { |current_planet| current_planet.name.casecmp(find_planet) == 0 }
+    
+    return matching_planets.length 
+    
     if matching_planets.length == 1
       return matching_planets.first
     elsif matching_planets.length > 1
       return "There are multiple planets with that name"
     else
-      return "Theres no planets with that name"
+      puts "Theres no planets with that name"
+      main
     end
   end
 

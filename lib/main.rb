@@ -12,13 +12,14 @@ def main
   user_input = false
   until user_input == true 
     puts <<-Message
+
     Please enter the letter for what you would like to do:"
     - List all Planets('L')
     - Planet Details('D')
     - Add a Planet('A')
     - Exit('Q')
     Message
-    print "=> "
+    print "\t=> "
     user_input = gets.chomp.upcase
 
     case user_input
@@ -28,7 +29,11 @@ def main
       puts "Enter the name of the planet you want more info for:"
       print "=> "
       planet = milky_way.find_planet_by_name(gets.chomp)
-      puts planet.summary
+      if planet == false
+        puts "There is no planet with that name"
+      else
+        puts planet.summary
+      end
     when "A"
       puts "Please enter the following information for your planet:"
       print "Name => "
