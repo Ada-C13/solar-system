@@ -13,21 +13,21 @@ def main
   input = ""
   until input == "exit"
     puts "\nWhat would you like to do?
-    - planet [details]
-    - [list] planets
-    - [add] planet
-    - exit"
+    1. planet [details]
+    2. [list] planets
+    3. [add] planet
+    4. exit"
 
     input = gets.chomp.downcase
 
     case input
-      when "details"
+      when "1", "details", "planet details"
         print "\nWhat planet do you want information on? "
         planet = gets.chomp
         puts solar_system.find_planet_by_name(planet)
-      when "list"
+      when "2", "list", "list planets"
         puts "\n#{solar_system.list_planets}"
-      when "add"
+      when "3", "add", "add planet"
         puts "Please enter the following information:"
 
         print "Planet Name: "
@@ -46,7 +46,10 @@ def main
         fun_fact = gets.chomp
 
         solar_system.add_planet(Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact))
-      when "exit"
+      when "4", "exit"
+        input = "exit"
+      else
+        puts "That's not a valid option, please try again."
     end
 
   end
