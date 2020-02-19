@@ -28,9 +28,16 @@ def add_new_planet(solar)
   print "Fun Fact: "
   fun_fact = gets.chomp
   new_planet = Planet.new(name, color, mass_kg, distance, fun_fact)
-  solar.add_planet(new_planet)
-  puts "\nNew planet add: "
   show_planet(new_planet)
+  puts "\nDo you confirm you want to add this planet? (Y/N) "
+  confirm = gets.chomp.upcase
+  if confirm == "Y" || confirm == "YES"
+    puts "New planet added."
+    solar.add_planet(new_planet)
+    show_planet(new_planet)
+  else 
+    puts "Ok, new planet was NOT added."
+  end
 end
 
 def planet_details(solar)
@@ -66,11 +73,11 @@ def add_all_planets(solar)
   solar.add_planet(pluto)
 end
 
-
 def main
   solar = SolarSystem.new("Sun")
   add_all_planets(solar)
 
+  puts "\nWelcome to our Solar System!"
   choice = ""
   while choice != "exit"
     puts "\nOptions are: List Planets, Planet Details, Add Planet, Distance, Exit."
@@ -78,18 +85,18 @@ def main
 
     choice = gets.chomp.downcase
     case choice
-      when "list planets", "lp"
+      when "list planets", "lp", "l"
         puts solar.list_planets
-      when "planet details", "pd"
+      when "planet details", "pd", "p"
         planet_details(solar)
-      when "add planets", "ap"
+      when "add planets", "ap", "a"
         add_new_planet(solar)
-      when "distance", "d"
+      when "distance", "dist", "d"
 
-      when "exit", "x", "quit", "q"
+      when "exit", "x", "quit", "q", "e"
         choice = "exit"
       else
-       puts "Invalid choice"
+       puts "Invalid choice!"
     end
   end
 end
