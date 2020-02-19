@@ -30,7 +30,9 @@ def main
 
 	list = solar_system.list_planets
 
-	return mercury.summary, venus.summary, earth.summary, mars.summary, jupiter.summary, saturn.summary, uranus.summary, neptune.summary, list
+	found_planet = solar_system.find_planet_by_name('Earth')
+
+	return mercury.summary, venus.summary, earth.summary, mars.summary, jupiter.summary, saturn.summary, uranus.summary, neptune.summary, list, found_planet
 end
 
 puts main

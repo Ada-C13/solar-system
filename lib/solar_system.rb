@@ -20,9 +20,11 @@ class SolarSystem
 	end
 
 	# Create a method SolarSystem#find_planet_by_name, that takes the name of a planet as a string, and returns the corresponding instance of Planet. The lookup should be case-insensitive, so that Earth, earth and eArTh all return the same planet.
-	def find_planet_by_name(planet)
-		raise ArgumentError.new("Argument must be a string") unless planet.is_a? String
-		
-		# return planet if planet.downcase.instance_of? Planet
+	def find_planet_by_name(planet_name)
+		raise ArgumentError.new("Argument must be a string") unless planet_name.is_a? String
+
+		@planets.each do |planet|
+			return planet.summary if planet.name.downcase == planet_name.downcase
+		end
 	end
 end
