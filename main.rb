@@ -51,6 +51,17 @@ def planet_details(solar)
   end
 end
 
+def planet_distance(solar)
+  print "Name of first planet: "
+  first_planet = gets.chomp.downcase
+  print "name of second planet: "
+  second_planet = gets.chomp.downcase
+  first  = solar.find_planet_by_name(first_planet)
+  second = solar.find_planet_by_name(second_planet)
+  distance_planets = (first.distance_from_sun_km - second.distance_from_sun_km).abs
+  return distance_planets
+end
+
 def add_all_planets(solar)
   mercury = Planet.new("Mercury", "red", 0.330e24, 57e6, "Mercury is the smallest planet in our Solar System.")
   venus   = Planet.new("Venus", "yellow", 4.87e24, 108e6, "Venus is the hottest planet in the Solar System.")
@@ -92,7 +103,7 @@ def main
       when "add planets", "ap", "a"
         add_new_planet(solar)
       when "distance", "dist", "d"
-
+        puts planet_distance(solar)
       when "exit", "x", "quit", "q", "e"
         choice = "exit"
       else
