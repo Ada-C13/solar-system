@@ -1,5 +1,6 @@
 require_relative "planet"
 require "awesome_print"
+require_relative "solar_system"
 
 def main()
  #...do stuff with planets ...
@@ -21,8 +22,35 @@ def main()
   # ap uranus.summary
   # ap neptune.summary
   
+  # solarsystem 4
+  solar_system = SolarSystem.new('Sol')
+
+  earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+  solar_system.add_planet(earth)
+  solar_system.add_planet(neptune)
+  solar_system.add_planet(saturn)
+  
+  list = solar_system.list_planets
+  puts list
+
+
+  test_solarsystem = SolarSystem.new ("moon")
+  test_solarsystem.add_planet("mercury")
+  test_solarsystem.add_planet("venus")
+  test_solarsystem.add_planet("mars")
+  puts test_solarsystem.list_planets
+
+  # solarsystem 5
+  found_planet = solar_system.find_planet_by_name('Earth')
+  puts found_planet
+  puts found_planet.summary
+
+  found_planet = solar_system.find_planet_by_name('pluto')
+  puts found_planet
+
+  # solarsystem 6
+  puts "Distance #{solar_system.distance_between("EaRtH", "sAtuRN")}."
+
 end
 
 main()
-earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-ap earth.summary
