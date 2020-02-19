@@ -30,14 +30,13 @@ def main
 	solar_system.add_planet(earth)
 
 	# Introduction and prompts user for next steps.
-	puts solar_system.distance_between('Earth', 'Venus')
 	puts "Welcome to the #{ solar_system.star_name } solar system."
 
 	continue = true
 
 	# Prompts user until they choose to exit.
 	until continue == false
-		puts "What would you like to do? 1. List planets 2. Planet details 3. Add Planet 4. Exit"
+		puts "What would you like to do? 1. List planets 2. Planet details 3. Add Planet 4. Find distance between two planets 5. Exit"
 		
 		response = gets.chomp.downcase
 
@@ -55,8 +54,15 @@ def main
 			solar_system.add_planet(new_planet)
 			puts new_planet.summary
 			puts solar_system.list_planets
+		# Allows user to find the distance between two planets.
+		elsif ["find distance between two planets", "find distance", "4.", "4"].include?(response)
+			puts "What's the name of the first planet?"
+			want_to_find_i = gets.chomp
+			puts "Whats the name of the second planet?"
+			want_to_find_ii = gets.chomp
+			puts "The distance between them is #{ solar_system.distance_between(want_to_find_i, want_to_find_ii) } km."
 		# User wants to exit the program.
-		elsif ["exit", "4.", "4", ""].include?(response)
+		elsif ["exit", "5.", "5", ""].include?(response)
 			continue = false
 		else
 			puts "Please choose a valid response."
