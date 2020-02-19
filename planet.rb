@@ -1,5 +1,4 @@
 class Planet
-
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
  
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
@@ -11,24 +10,15 @@ class Planet
   end
 
   def valid_mass(mass_kg)
-    if mass_kg > 0 
-      return mass_kg
-    else 
-      raise ArgumentError
-    end
+    raise ArgumentError, "0 is an invalid input" unless mass_kg.respond_to? (:greater) > 0 
   end
 
   def valid_distance(distance_from_sun_km)
-    if distance_from_sun_km > 0
-      return distance_from_sun_km
-    else
-      raise ArgumentError "Should I say somenthing"
-    end
+    raise ArgumentError, "0 is an invalid input" unless distance_from_sun_km.respond_to? (:greater) > 0 
   end
 
   def summary
     return "The planet's name is#{@name}: and is recognizable by having a #{@color}: color. It weighing about #{@mass_kg}: kilograms and 
     #{@distance_from_sun_km}: kilometer from the sun. Fun fact about #{@name} is that #{@fun_fact}:."
   end
-
 end
