@@ -34,6 +34,21 @@ def planet_details(system)
   return system.find_planet_by_name(planet_name)&.summary
 end
 
+def add_planet_from_user(system)
+  planet_reqs = %w(name color mass distance fact)
+  puts "Okay! You wanted to add a planet."
+  planet_reqs.map! do |req|
+    print "What's your planets #{req}?: "
+    req = gets.chomp
+  end
+  new_planet = planet_reqs[0].downcase
+  new_planet = Planet.new(planet_reqs[0].capitalize, planet_reqs[1], planet_reqs[2].to_i, planet_reqs[3].to_i, planet_reqs[4])
+  puts "Okay! Here's your new planet: "
+  puts new_planet.summary
+
+  return system.add_planet(new_planet)
+end
+
 def main(system)
   puts "Hi there and welcome to the Solar System!"
   puts "We have lots of information about it and I can't wait to share it all with you."
@@ -42,13 +57,20 @@ def main(system)
 
   until answer == "exit"
     puts "\nWhat would you like to do next?:"
-    puts "List planets: list\nPlanet details: details\nExit: exit"
+    puts "List planets: list\nPlanet details: details\nAdd Planet: add\nExit: exit"
     answer = gets.chomp
     case answer
       when "list"
         puts system.list_planets
       when "details"
         puts planet_details(system)
+      when "add"
+        add_planet_from_user(system)
+      when "exit"
+        puts "Alright! Goodbye!"
+        return
+      else
+        puts "\nError: invalid input"
     end
   end
 end
