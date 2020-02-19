@@ -36,8 +36,7 @@ def main
 
 		case option
 			when "1", "list planets"
-				list = solar_system.list_planets
-				puts list
+				puts solar_system.list_planets
 			when "2", "planet details"
 				puts "\nWhat planet would you like to learn about?"
 				puts solar_system.find_planet_by_name(gets.chomp).summary
