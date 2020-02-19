@@ -33,6 +33,6 @@ class SolarSystem
     planet_one_distance = planet_one.distance_from_sun_km
     planet_two_distance = planet_two.distance_from_sun_km
 
-    return planet_one_distance > planet_two_distance ? (planet_one_distance - planet_two_distance) : (planet_two_distance - planet_one_distance)
+    return (planet_one_distance - planet_two_distance).abs
   end
 end
