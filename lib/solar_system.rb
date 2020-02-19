@@ -20,7 +20,6 @@ class SolarSystem
 
   def find_planet_by_name(name)
     match = planets.find { |planet| planet.name.upcase == name.upcase }
-    raise ArgumentError.new("Planet '#{name}'' not found") if match == nil
     return match
   end
 
