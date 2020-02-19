@@ -7,12 +7,18 @@ class SolarSystem
   end
 
   def add_planet(planet)
-    @planets << planet
+    @planets << planet.name
   end
 
   def list_planets
-    return "Planets orbiting @star_name \n 
-    #{@planets.eachwith {|indiv_planet,i| "#{i+1}  #{indiv_planet}\n"}}"
+
+    planet_string_list = "Planets orbiting #{@star_name} \n"
+    @planets.each_with_index do |indiv_planet,i| 
+      planet_string_list += "#{i+1}.  #{indiv_planet}\n"
+
+    end
+    
+    return planet_string_list
   end
 
 end
