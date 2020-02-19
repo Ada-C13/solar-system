@@ -12,6 +12,9 @@ def main
   sol.add_planet(earth)
   sol.add_planet(mars)
   puts sol.list_planets
+  earth2 = Planet.new("Earth", "blue", (5.972 * 10**24), (1.479 * 10**6), "is 71% water.")
+  sol.add_planet(earth2)
+  sol.find_planet_by_name("earth")
 
   
 end
