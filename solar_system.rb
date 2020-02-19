@@ -7,19 +7,27 @@ class SolarSystem
   end
 
   def add_planet(planet)
-    @planets << planet.name
+    @planets << planet
   end
 
   def list_planets
-
     planet_string_list = "Planets orbiting #{@star_name} \n"
-    @planets.each_with_index do |indiv_planet,i| 
-      planet_string_list += "#{i+1}.  #{indiv_planet}\n"
 
+    @planets.each_with_index do |indiv_planet,i| 
+      planet_string_list += "#{i+1}.  #{indiv_planet.name}\n"
     end
-    
+
     return planet_string_list
   end
 
-end
+  def find_planet_by_name(name)
+    @planets.each do|planet|
+      until planet.name.downcase == name.downcase 
+         return planet
+      end
+    end
+    puts "YOU SHOULD NEVER SEE THIS"
+  end
+
+end 
 
