@@ -4,7 +4,7 @@ require_relative 'lib/solar_system.rb'
 def main
   solar_system = SolarSystem.new('Sol')
 
-  earth = Planet.new('Earth', 'blue-green', 0, 1.496e8, 'Only planet known to support life')
+  earth = Planet.new('Earth', 'blue-green', 753, 1.496e8, 'Only planet known to support life')
   jupiter = Planet.new('Jupiter', 'blue-red', 1.898e27, 817e6, 'Jupiter is the largest planet in our Solar System.')
 
   solar_system.add_planet(earth)
@@ -16,7 +16,8 @@ def main
     1. planet [details]
     2. [list] planets
     3. [add] planet
-    4. exit"
+    4. [distance] between planets
+    5. exit"
 
     input = gets.chomp.downcase
 
@@ -24,7 +25,7 @@ def main
       when "1", "details", "planet details"
         print "\nWhat planet do you want information on? "
         planet = gets.chomp
-        puts solar_system.find_planet_by_name(planet)
+        puts solar_system.find_planet_by_name(planet).summary
       when "2", "list", "list planets"
         puts "\n#{solar_system.list_planets}"
       when "3", "add", "add planet"
@@ -46,7 +47,16 @@ def main
         fun_fact = gets.chomp
 
         solar_system.add_planet(Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact))
-      when "4", "exit"
+      when "4", "distance", "distance between", "distance between planets"
+        print "First planet: "
+        planet_one = gets.chomp
+
+        print "Second planet: "
+        planet_two = gets.chomp
+
+        puts "#{planet_one} and #{planet_two} are 
+        #{solar_system.distance_between(solar_system.find_planet_by_name(planet_one).name, solar_system.find_planet_by_name(planet_two).name)}km apart."
+      when "5", "exit"
         input = "exit"
       else
         puts "That's not a valid option, please try again."
@@ -54,7 +64,6 @@ def main
 
   end
 
-  puts "Earth and Jupiter are #{solar_system.distance_between(earth, jupiter)}km apart"
 end
 
 main
