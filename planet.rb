@@ -2,7 +2,7 @@ class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
  
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
-    @name = name
+    @name = name.capitalize
     @color = color
     @mass_kg = valid_mass(mass_kg)
     @distance_from_sun_km = valid_distance(distance_from_sun_km)
