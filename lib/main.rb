@@ -28,6 +28,8 @@ def main
   found_planet = solar_system.find_planet_by_name('Mars')
 
   puts found_planet
+
+  puts found_planet.name
   
   puts found_planet.summary
 
