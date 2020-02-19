@@ -46,6 +46,41 @@ class SolarSystem
     end
 
     return (distance_a - distance_b).abs
+  end
+  
+  def planet_details
+    again = "y"
+    while again != "n"
+      puts self.list_planets
+      puts "which planet would you like to learn more about?(type it in)"
+      planet_to_learn = gets.chomp.downcase
+      puts self.find_planet_by_name(planet_to_learn).summary
+      puts "would you like to learn about another planet? y/n"
+      again = gets.chomp.downcase
+    end 
+  end 
+
+  def add_planet_by_user
+    again = "y"
+    while again != "n"
+      puts "please enter the planet name?"
+      planet_name = gets.chomp.downcase
+      puts "color?"
+      planet_color = gets.chomp.downcase
+      puts "mass in kg?"
+      planet_mass = gets.chomp.to_f
+      puts "distance to sun in km?"
+      planet_dis = gets.chomp.to_f
+      puts "fun facts?"
+      planet_fun = gets.chomp.downcase
+
+      user_new_planet = Planet.new(planet_name,planet_color,planet_mass,planet_dis,planet_fun)
+      self.add_planet(user_new_planet)
+      puts self.list_planets
+
+      puts "would you like to add another planet info? y/n"
+      again = gets.chomp.downcase
+    end 
   end 
 
 end 
