@@ -7,7 +7,7 @@ class SolarSystem
   end
 
   def add_planet(planet)
-    @planets.push(planet)
+    @planets << planet
   end
 
   # use each with index to produce string list
@@ -19,15 +19,17 @@ class SolarSystem
     return planet_string
   end
 
+  # method to find planet
   def find_planet_by_name(planet)
     # take planet.name and make case insensitive
     planet = planet.capitalize
 
     # returns first instance of a match
     found_planet_array = @planets.detect {|p| (p.name) == planet}
-    found_planet = found_planet_array
-    return found_planet
-
+      found_planet = found_planet_array
+      return found_planet
   end
 
 end
+
+

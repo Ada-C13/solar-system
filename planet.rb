@@ -11,8 +11,7 @@ class Planet
   end
 
   def summary
-    return "#{name} is a #{color} planet and a fun fact is: 
-    #{fun_fact}"
+    return "#{name} is a #{color} planet, and weighs #{mass_kg} kg.\nA fun fact about this planet is: #{fun_fact}."
   end
 
 end
