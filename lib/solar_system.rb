@@ -21,11 +21,18 @@ class SolarSystem
     return planet_list
   end
 
-  def find_planet_by_name(planet)
-    planet.capitalize!()
+  def find_planet_by_name(planet_input) 
+    planet_input.capitalize!()
 
-    planet_lookup = @planets.find_index {|item| item.name.capitalize() == planet}
+    planet_lookup = @planets.find_index {|planet| planet.name.capitalize() == planet_input}
 
-    return planet_lookup ? @planets[planet_lookup].summary : "The planet #{planet} doesn't exist"
+    return planet_lookup ? @planets[planet_lookup].summary : "The planet #{planet_input} doesn't exist"
+  end
+
+  def distance_between(planet_one, planet_two)
+    planet_one_distance = planet_one.distance_from_sun_km
+    planet_two_distance = planet_two.distance_from_sun_km
+
+    return planet_one_distance > planet_two_distance ? (planet_one_distance - planet_two_distance) : (planet_two_distance - planet_one_distance)
   end
 end
