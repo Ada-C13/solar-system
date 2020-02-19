@@ -31,7 +31,7 @@ def main
 	puts "Welcome to the Solar System Explorer!"
 	
 	loop do
-		puts "\nWhat would you like to do? \n1) list planets \n2) planet details \n3) exit"
+		puts "\nWhat would you like to do? \n1) list planets \n2) planet details \n3) add planet \n4) exit"
 		option = gets.chomp.downcase
 
 		case option
@@ -40,9 +40,22 @@ def main
 				puts list
 			when "2", "planet details"
 				puts "\nWhat planet would you like to learn about?"
-				found_planet = solar_system.find_planet_by_name(gets.chomp)
-				puts found_planet.summary
-			when "3", "exit"
+				puts solar_system.find_planet_by_name(gets.chomp).summary
+			when "3", "add planet"
+				puts "Please enter the planet's name:"
+				name = gets.chomp
+				puts "Please enter the planet's color:"
+				color = gets.chomp
+				puts "Please enter the planet's mass (kg):"
+				mass_kg = gets.chomp.to_i
+				puts "Please enter the planet's distance from the sun (km):"
+				distance_from_sun_km = gets.chomp.to_i
+				puts "Please enter a fun fact about the planet:"
+				fun_fact = gets.chomp
+				new_planet = Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact)
+				solar_system.add_planet(new_planet)
+				puts "\nThank you! #{name} has been added to #{solar_system.star_name}."
+			when "4", "exit"
 				break
 		end
 	end
