@@ -12,13 +12,28 @@ def main
   solar_system.add_planet(mars)
   solar_system.add_planet(saturn)
 
-  list = solar_system.list_planets
-  puts list
+  loop_value = "use loop"
 
-  found_planet = solar_system.find_planet_by_name('sAturn')
+  while loop_value == "use loop"
+    puts "Type 'list' if you want a list of planets, type 'exit' if you would like to exit the program."
+    user_input = gets.chomp
+      if user_input.downcase == "list" || user_input.downcase == "exit"
+        if user_input.downcase == "list"
+          puts solar_system.list_planets
+        else 
+          loop_value = "stop loop"
+        end
+      else
+        puts "You did not input a valid response."
+        loop_value = "stop loop"
+      end
+  end
 
-  puts found_planet.name
-  puts found_planet.summary
+
+  # found_planet = solar_system.find_planet_by_name('sAturn')
+
+  # puts found_planet.name
+  # puts found_planet.summary
 
 end
 
