@@ -10,14 +10,9 @@ class Planet
     @fun_fact = fun_fact
   end
 
-
   def summary
-    return "Planet Summary
-    name: #{name} 
-    color: #{color} 
-    mass(kg): #{mass_kg} 
-    distance from the sun(km): #{distance_from_sun_km} 
-    fun fact: #{fun_fact}"
+    return "#{name} is a #{color} planet and a fun fact is: 
+    #{fun_fact}"
   end
 
 end

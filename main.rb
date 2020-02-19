@@ -1,5 +1,5 @@
-# Wave 1
 require_relative 'planet'
+require_relative 'solar_system'
 
 def main
 
@@ -16,7 +16,21 @@ def main
           'second brightest natural object in the sky')
 
   puts earth.summary
-  puts venus.summary
+  puts earth
+
+  # Wave 2:  returning list
+  solar_system = SolarSystem.new("Sol")
+  solar_system.add_planet(earth)
+  solar_system.add_planet(venus)
+
+  list = solar_system.list_planets
+  puts list
+
+  # finding planet by name
+  found_planet = solar_system.find_planet_by_name('VenUs')
+  puts found_planet
+  puts found_planet.summary
+
 end
 
 main
