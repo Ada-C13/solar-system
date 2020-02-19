@@ -31,14 +31,18 @@ def main
 	puts "Welcome to the Solar System Explorer!"
 	
 	loop do
-		puts "\nWhat would you like to do? \n1) list planets \n2) exit"
+		puts "\nWhat would you like to do? \n1) list planets \n2) planet details \n3) exit"
 		option = gets.chomp.downcase
 
 		case option
 			when "1", "list planets"
 				list = solar_system.list_planets
 				puts list
-			when "2", "exit"
+			when "2", "planet details"
+				puts "\nWhat planet would you like to learn about?"
+				found_planet = solar_system.find_planet_by_name(gets.chomp)
+				puts found_planet.summary
+			when "3", "exit"
 				break
 		end
 	end
