@@ -13,7 +13,6 @@ class Planet
   if @mass_kg < 0 || @distance_from_sun_km < 0
     raise(ArgumentError, "Mass or distance cannot be negative")
   end
-  
 end
 
   def summary
