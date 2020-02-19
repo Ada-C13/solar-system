@@ -15,6 +15,24 @@ def show_planet(planet)
   puts "Fun Fact = #{planet.fun_fact}"  
 end
 
+def add_new_planet(solar)
+  puts "Enter the data for the new planet."
+  print "Name: "
+  name = gets.chomp.capitalize
+  print "Color: "
+  color = gets.chomp.downcase
+  print "Mass in Kg: "
+  mass_kg = gets.chomp.to_f
+  print "Distance from the Sun in Km: "
+  distance = gets.chomp.to_f
+  print "Fun Fact: "
+  fun_fact = gets.chomp
+  new_planet = Planet.new(name, color, mass_kg, distance, fun_fact)
+  solar.add_planet(new_planet)
+  puts "\nNew planet add: "
+  show_planet(new_planet)
+end
+
 def planet_details(solar)
   print "What is the name of the planet? "
   planet_name = gets.chomp
@@ -65,7 +83,7 @@ def main
       when "planet details", "pd"
         planet_details(solar)
       when "add planets", "ap"
-
+        add_new_planet(solar)
       when "distance", "d"
 
       when "exit", "x", "quit", "q"
