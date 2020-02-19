@@ -15,6 +15,6 @@ class SolarSystem
 
 	# return (not puts) a string containing a list of all the planets in the system
 	def list_planets
-		return "Planets orbiting #{@star_name}:\n #{@planets}"
+		return "Planets orbiting #{@star_name}:\n", @planets
 	end
 end
