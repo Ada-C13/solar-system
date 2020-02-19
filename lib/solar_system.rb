@@ -38,7 +38,7 @@ class SolarSystem
       else
         return found_planet[0]
       end
-      
+    end
   end
-  # found_planet = solar_system.find_planet_by_name('Mars')
+
 end
