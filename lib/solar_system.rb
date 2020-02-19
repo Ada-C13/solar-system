@@ -26,7 +26,7 @@ class SolarSystem
 
     planet_lookup = @planets.find_index {|planet| planet.name.capitalize() == planet_input}
 
-    return planet_lookup ? @planets[planet_lookup].summary : "The planet #{planet_input} doesn't exist"
+    return planet_lookup ? @planets[planet_lookup] : "The planet #{planet_input} doesn't exist"
   end
 
   def distance_between(planet_one, planet_two)
