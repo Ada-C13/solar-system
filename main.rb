@@ -19,9 +19,20 @@ def paint_yellow(string)
   return "#{string.yellow}"
 end 
 
+def comma_sperated_list(array)
+  output = "(1) #{array[0]}"
+  (1..array.length - 1).each do |i|
+    output += ", (#{i + 1}) #{array[i]}"
+  end 
+
+  return output
+end 
+
 def display_options 
+  options = ["list planets", "planet details", "add planet", "find distance between 2 planets", "exit"]
+
   puts paint_gray("\nChoose one of the following options:")
-  puts paint_gray("(1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit")
+  puts paint_gray(comma_sperated_list(options))
 
   print " > "
   answer = gets.chomp.downcase
@@ -68,19 +79,18 @@ end
 
 
 def create_planet_by_user(name)
-  print "Color: "
-  color = gets.chomp 
+  questions = ["Color", "Mass(kg)", "Distance from sun (km)", "Fun fact"]
 
-  print "Mass (kg): "
-  mass_kg = gets.chomp
+  answers = [] 
+  answers << name 
 
-  print "Distance from sun (km): "
-  distance_from_sun_km = gets.chomp
+  questions.each do |question|
+    print "#{question}: "
+    answer = gets.chomp
+    answers << answer
+  end 
 
-  print "Fun fact: "
-  fun_fact = gets.chomp
-
-  new_planet = Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact)
+  new_planet = Planet.new(*answers)
 
   return new_planet
 end 
@@ -164,10 +174,8 @@ def main
         selected_planets << name
       end 
 
-      planet_one = selected_planets[0]
-      planet_two = selected_planets[1]
-      distance = solar_system.distance_between(planet_one, planet_two)
-      puts "The distance between #{planet_one} and #{planet_two} is #{distance}km."
+      distance = solar_system.distance_between(*selected_planets)
+      puts "The distance between #{selected_planets[0]} and #{selected_planets[1]} is #{distance}km."
 
     when "exit", "5", "(5)"
       display_goodbye_message
