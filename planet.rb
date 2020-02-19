@@ -13,12 +13,11 @@ class Planet
   end
 
   def summary
-    return "So you want to know more about #{@name}? Sure! Here are some basics:" + 
+    return "Here are some basics on #{@name}:" + 
             "\n" + " 1. It is the color #{@color}." +
             "\n" + " 2. It weighs #{@mass_kg} kg." +
             "\n" + " 3. It is #{@distance_from_sun_km } kilometers from the sun." +
-            "\n" + " 4. And fun fact: #{@fun_fact}" +
-            "\n" + "That's about all I know!"
+            "\n" + " 4. And fun fact: #{@fun_fact}"
   end 
 
 end 
