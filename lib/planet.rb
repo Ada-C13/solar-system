@@ -8,13 +8,13 @@ class Planet
     @mass_kg = mass_kg
     until @mass_kg > 0
       print "Please enter a mass kg greater than 0: "
-      @mass_kg = gets.chomp.to_i
+      @mass_kg = gets.chomp.to_f
     end
 
     @distance_from_sun_km = distance_from_sun_km
     until @mass_kg > 0
       print "Please enter a distance from sun greater than 0: "
-      @distance_from_sun_km = gets.chomp.to_i
+      @distance_from_sun_km = gets.chomp.to_f
     end
 
     @fun_fact = fun_fact
