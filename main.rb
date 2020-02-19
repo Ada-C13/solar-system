@@ -2,7 +2,7 @@ require_relative 'planet'
 require_relative 'solar_system'
 
 # Generates a new planet based on user prompts.
-def generate_new_planet
+def generate_new_planet(solar_system)
 	planet_details = {}
 		puts "What is the name of the planet you want to add?"
 		planet_details[:name] = gets.chomp.capitalize
@@ -16,7 +16,17 @@ def generate_new_planet
 		planet_details[:fun_fact] = gets.chomp
 
 		new_planet = Planet.new(planet_details[:name], planet_details[:color], planet_details[:mass_kg], planet_details[:distance_from_sun_km], planet_details[:fun_fact])
-		return new_planet
+		solar_system.add_planet(new_planet)
+		puts new_planet.summary
+		puts solar_system.list_planets
+end
+
+def find_distance(solar_system)
+	puts "What's the name of the first planet?"
+	want_to_find_i = gets.chomp
+	puts "Whats the name of the second planet?"
+	want_to_find_ii = gets.chomp
+	puts "The distance between them is #{ solar_system.distance_between(want_to_find_i, want_to_find_ii) } km."
 end
 
 def main
@@ -50,17 +60,10 @@ def main
 			puts found_planet.summary
 		# Allows user to add a planet to the solar system.
 		elsif ["add planet", "add", "3.", "3"].include?(response)
-			new_planet = generate_new_planet
-			solar_system.add_planet(new_planet)
-			puts new_planet.summary
-			puts solar_system.list_planets
+			generate_new_planet(solar_system)
 		# Allows user to find the distance between two planets.
 		elsif ["find distance between two planets", "find distance", "4.", "4"].include?(response)
-			puts "What's the name of the first planet?"
-			want_to_find_i = gets.chomp
-			puts "Whats the name of the second planet?"
-			want_to_find_ii = gets.chomp
-			puts "The distance between them is #{ solar_system.distance_between(want_to_find_i, want_to_find_ii) } km."
+			find_distance(solar_system)
 		# User wants to exit the program.
 		elsif ["exit", "5.", "5", ""].include?(response)
 			continue = false
