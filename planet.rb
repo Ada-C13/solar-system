@@ -21,7 +21,7 @@ class Planet
     end
 
   
-#Wave 2
+
 
 
 
