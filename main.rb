@@ -32,18 +32,20 @@ end
 def planet_details(this_planet, solar_system)
   solar_system.planets.each do |planet|
     if this_planet == planet.name
-    puts planet.summary
+    return planet.summary
     end 
   end
+  return "This planet does not exist!"
 
 end 
 
 
 def main  
+  #DISCLAIMER: this info is not accurate 
   solar_system = SolarSystem.new('Sol')
-  solar_system.add_planet(Planet.new('Earth', 'green', 5.5, 6.8, 'humans live here lol'))
-  solar_system.add_planet(Planet.new('Venus', 'red', 1, 6, 'it is warm i think'))
-  solar_system.add_planet(Planet.new('Mars', 'brow', 8, 10, 'aliens exist'))
+  solar_system.add_planet(Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life'))
+  solar_system.add_planet(Planet.new('Venus', 'red', 1, 6, 'idk'))
+  solar_system.add_planet(Planet.new('Mars', 'brown', 8, 10, 'aliens exist'))
 
   puts "
   what shall we do next (select a number)?
@@ -65,8 +67,8 @@ def main
       elsif input == '2'
 
         puts "which planet?"
-        this_planet = gets.chomp 
-        planet_details(this_planet, solar_system)
+        this_planet = gets.chomp.upcase 
+        puts planet_details(this_planet, solar_system)
         puts "
         what shall we do next (select a number)?
           1. list planets
@@ -87,6 +89,10 @@ def main
         input = gets.chomp
       end 
   end
+  #should output place in memory
+  puts solar_system.find_planet_by_name("earth")
+  #should return "did not find planet" because planet doesnt exist unless created in control loop
+  puts solar_system.find_planet_by_name("quin")
 end
 
 main()

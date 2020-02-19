@@ -2,7 +2,7 @@ class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact 
 
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
-    @name = name 
+    @name = name.upcase 
     @color = color 
     #raise "mass needs to be a number" if !mass_kg.instance_of?(Integer)
     @mass_kg = mass_kg
