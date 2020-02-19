@@ -31,4 +31,12 @@ class SolarSystem
 		return "Planet could not be found in this solar system."
 	end
 
+	def distance_between(planet_a, planet_b)
+		found_a = self.find_planet_by_name(planet_a)
+		found_b = self.find_planet_by_name(planet_b)
+
+		distance = found_a.distance_from_sun_km - found_b.distance_from_sun_km
+
+		return distance.abs
+	end
 end

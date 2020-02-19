@@ -30,6 +30,7 @@ def main
 	solar_system.add_planet(earth)
 
 	# Introduction and prompts user for next steps.
+	puts solar_system.distance_between('Earth', 'Venus')
 	puts "Welcome to the #{ solar_system.star_name } solar system."
 
 	continue = true
