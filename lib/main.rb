@@ -28,11 +28,20 @@ def main
 	neptune = Planet.new('Neptune', 'dark blue', 1.02e26, 4.5e9, 'a planet with a distinct blue color, which is due to the absorption of red light by methane in the atmosphere')
 	solar_system.add_planet(neptune)
 
-	list = solar_system.list_planets
+	puts "Welcome to the Solar System Explorer!"
+	
+	loop do
+		puts "\nWhat would you like to do? \n1) list planets \n2) exit"
+		option = gets.chomp.downcase
 
-	found_planet = solar_system.find_planet_by_name('Earth')
-
-	return mercury.summary, venus.summary, earth.summary, mars.summary, jupiter.summary, saturn.summary, uranus.summary, neptune.summary, list, found_planet
+		case option
+			when "1", "list planets"
+				list = solar_system.list_planets
+				puts list
+			when "2", "exit"
+				break
+		end
+	end
 end
 
-puts main
+main
