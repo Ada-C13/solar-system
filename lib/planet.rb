@@ -16,7 +16,7 @@ class Planet
 end
 
   def summary
-    return "What do we know about #{name}?  It is #{color}.  It has a mass of #{mass_kg} kilograms.  #{name} is #{distance_from_sun_km} kilometers from the Sun.  Did you know that #{name} #{fun_fact}?  Pretty fascinating, right?"
+    return "\nWhat do we know about #{name}?  \nIt is #{color}.  It has a mass of #{mass_kg} kilograms.  #{name} is #{distance_from_sun_km} kilometers from the Sun.  Did you know that #{name} #{fun_fact}?  Pretty fascinating, right?"
   end
 
 end
