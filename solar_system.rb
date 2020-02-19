@@ -26,9 +26,15 @@ class SolarSystem
     if found.length == 1
       return found[0]
     elsif found.length > 1
-      return found
+      raise ArgumentError.new("This system has more than one planet of that name.")
     else
       return nil
     end
+  end
+
+  def distance_between(name1, name2)
+    planet1 = find_planet_by_name(name1)
+    planet2 = find_planet_by_name(name2)
+    return (planet1.distance_from_sun_km - planet2.distance_from_sun_km).abs()
   end
 end
