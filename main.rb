@@ -2,11 +2,11 @@ require_relative 'planet'
 require_relative 'solar_system'
 
 def main
-  mercury = Planet.new("Mercury", "Gray", 3.285e23, 57904197.12 ,"Mercury is named after the messenger of the Roman gods.")
-  venus = Planet.new("Venus", "Pale Yellow", 4.867e24, 10821.23, "Venus is the second brightest natural object in the sky.")
-  earth = Planet.new('Earth', 'Blue', 5.972e24, 1.496e8, "Only planet known to support life.")
-  mars = Planet.new("Mars", "Reddish Brown",6.39e23 , 227883110.4, "Pieces of Mars have been found on Earth.")
-  jupiter = Planet.new("Jupiter", "Orange", 1.898e27, 778600627.2, "Jupiter has at least 67 moons in satellite around the planet.")
+  mercury = Planet.new("Mercury", "gray", 3.285e23, 57904197.12 ,"Mercury is named after the messenger of the Roman gods.")
+  venus = Planet.new("Venus", "pale yellow", 4.867e24, 10821.23, "Venus is the second brightest natural object in the sky.")
+  earth = Planet.new('Earth', 'blue', 5.972e24, 1.496e8, "Only planet known to support life.")
+  mars = Planet.new("Mars", "reddish brown",6.39e23 , 227883110.4, "Pieces of Mars have been found on Earth.")
+  jupiter = Planet.new("Jupiter", "orange", 1.898e27, 778600627.2, "Jupiter has at least 67 moons in satellite around the planet.")
   
   solar_system = SolarSystem.new("Sun") 
   

@@ -10,15 +10,24 @@ class Planet
   end
 
   def valid_mass(mass_kg)
-    raise ArgumentError, "0 is an invalid input" unless mass_kg.respond_to? (:greater) > 0 
+    if mass_kg <= 0 
+      raise ArgumentError "0 is an invalid input"
+    else 
+      mass_kg.to_s
+    end
   end
 
   def valid_distance(distance_from_sun_km)
-    raise ArgumentError, "0 is an invalid input" unless distance_from_sun_km.respond_to? (:greater) > 0 
+    if distance_from_sun_km <= 0
+      raise ArgumentError "0 is an invalid input"
+    else
+      distance_from_sun_km.to_s
+    end
   end
 
   def summary
-    return "The planet's name is#{@name}: and is recognizable by having a #{@color}: color. It weighing about #{@mass_kg}: kilograms and 
-    #{@distance_from_sun_km}: kilometer from the sun. Fun fact about #{@name} is that #{@fun_fact}:."
+    return "The planet's name is #{@name}, it has a recognizable #{@color} color. 
+    \nIt weighs about #{@mass_kg} kilograms and is #{@distance_from_sun_km} kilometers from the sun. 
+    \nFun fact about #{@name}: #{@fun_fact}"
   end
 end
