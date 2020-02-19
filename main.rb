@@ -1,7 +1,7 @@
 require_relative 'planet'
 require_relative 'solarsystem'
 
-
+#this method is used in the control loop if the user chooses to add a planet
 def new_planet
   puts "what is the name of the planet?:"
   name = gets.chomp
@@ -25,44 +25,68 @@ def new_planet
     end 
   puts "what is a fun fact about is planet?:"
   fact = gets.chomp 
-  new_planet = Planet.new(name, color, mass, distance, fact)
-  return new_planet
+  
+  return Planet.new(name, color, mass, distance, fact)
 end 
 
-def main
+def planet_details(this_planet, solar_system)
+  solar_system.planets.each do |planet|
+    if this_planet == planet.name
+    puts planet.summary
+    end 
+  end
 
-  earth = Planet.new('Earth', 'green', 5.5, 6.8, 'humans live here lol')
-  venus = Planet.new('Venus', 'red', 1, 6, 'it is warm i think')
-   mars = Planet.new('Mars', 'brow', 8, 10, 'aliens exist')
-  
+end 
+
+
+def main  
   solar_system = SolarSystem.new('Sol')
-  solar_system.add_planet(earth)
-  solar_system.add_planet(venus)
-  solar_system.add_planet(mars)
+  solar_system.add_planet(Planet.new('Earth', 'green', 5.5, 6.8, 'humans live here lol'))
+  solar_system.add_planet(Planet.new('Venus', 'red', 1, 6, 'it is warm i think'))
+  solar_system.add_planet(Planet.new('Mars', 'brow', 8, 10, 'aliens exist'))
 
-  puts "what shall we do next"
+  puts "
+  what shall we do next (select a number)?
+  1. list planets
+  2. planet details 
+  3. add planet
+  "
   input = gets.chomp.downcase
 
   while input != 'exit'
-      if input == 'list planets'
+      if input == '1'
         puts solar_system.list_planets
-        puts "what shall we do next"
+        puts "
+        what shall we do next (select a number)?
+          1. list planets
+          2. planet details 
+          3. add planet"
         input = gets.chomp
-      elsif input == 'planet details'
+      elsif input == '2'
+
         puts "which planet?"
         this_planet = gets.chomp 
-        puts this_planet.summary
-      elsif input == 'add planet'
+        planet_details(this_planet, solar_system)
+        puts "
+        what shall we do next (select a number)?
+          1. list planets
+          2. planet details 
+          3. add planet"
+        input = gets.chomp
+        
+      elsif input == '3'
         solar_system.add_planet(new_planet)
         solar_system.planets.each do |planet|
           puts planet.summary
         end 
-        puts "what shall we do next"
+        puts "  
+        what shall we do next (select a number)?
+          1. list planets
+          2. planet details 
+          3. add planet"
         input = gets.chomp
       end 
   end
 end
-
-
 
 main()
