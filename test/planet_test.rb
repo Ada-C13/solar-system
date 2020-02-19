@@ -22,4 +22,17 @@ describe 'Planet Class Tests' do
 
     expect(planet.name).must_equal('abc')
   end
+
+  it 'negative weight and distance' do
+    planet = Planet.new('abc','green', -100, -500, 'cool planet')
+    expect(planet.mass_kg).must_equal(0)
+    expect(planet.distance_from_sun_km).must_equal(0)
+  end
+
+  it 'string weight and distance' do
+    planet = Planet.new('abc','green', 'dog', 'cat', 'cool planet')
+    expect(planet.mass_kg).must_equal(0)
+    expect(planet.distance_from_sun_km).must_equal(0)
+  end
 end
+
