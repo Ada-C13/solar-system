@@ -47,8 +47,3 @@ class SolarSystem
     return distance
   end
 end
-
-
-
-
-s1 = SolarSystem.new("hello")
