@@ -13,14 +13,6 @@ def main()
  uranus = Planet.new('Uranus', 'blue', 8.68e25, 3e9, 'Uranus is the coldest of the planets.')
  neptune = Planet.new('Neptune', 'dark blue', 1.02e26, 4.5e9, 'Neptune’s blue color is due to the absorption of red light by methane in the atmosphere.')
 
- neptune = { 
-   :name =>'Neptune', 
-   :color => 'dark blue', 
-   :weight =>1.02e26, 
-   :distance => 4.5e9, 
-   :fact => 'Neptune’s blue color is due to the absorption of red light by methane in the atmosphere.'
- }
-
   # ap earth.summary
   # ap mercury.summary
   # ap venus.summary
