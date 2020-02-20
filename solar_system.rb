@@ -19,12 +19,14 @@ class SolarSystem
     return string
   end
 
-  def find_planet_by_name
-    planet = add_planet(planet)
-    case planet
-    when "#{planet.downcase}", "#{planet.upcase}", "#{planet.capitalize}"
+  def find_planet_by_name(string_input)
+    string_input = string_input.capitalize
+    @planets.each do |planet|
+      if planet.name == string_input
+        return planet
+      end
     end
-    return planet
+    return false
   end
 end
 

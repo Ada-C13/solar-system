@@ -2,6 +2,7 @@ class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact 
   
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
+    raise ArgumentError if mass_kg < 0 ||distance_from_sun_km < 0 
     @name = name
     @color = color
     @mass_kg = mass_kg
@@ -10,7 +11,7 @@ class Planet
   end
 
   def summary
-    return "Your planet name is #{@name}, has #{@color} color, it's #{@mass_kg} Kg, it's #{@distance_from_sun_km} far from sun. More fact for your planet:#{@fun_fact}"
+    return "Your planet's name is #{@name}, it's color is #{@color}, it's mass is #{@mass_kg} kg, it is #{@distance_from_sun_km} km from the Sun. A fact for your planet: #{@fun_fact}"
   end
 end
 
