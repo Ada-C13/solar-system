@@ -3,12 +3,12 @@ require_relative 'solar_system'
 
 def make_new_planet(solar_system)
   puts "What is the name of your planet?"
-  name = gets.chomp
+  name = gets.chomp.capitalize
   puts "What is the color of your planet?"
   color = gets.chomp
   puts "How big is your planet in kg?"
   mass_kg = gets.chomp
-  while mass_kg.to_i.to_s == mass_kg
+  while mass_kg.to_i.to_s != mass_kg
     puts "That is NOT a valid number. Please re-enter a number."
     mass_kg = gets.chomp
   end
@@ -63,7 +63,7 @@ def main
       elsif user_input == "add"
         users_new_planet = make_new_planet(solar_system)
         puts users_new_planet.summary
-        puts "Your planet #{users_new_planet.name.capitalize} has been added to the solar system: #{solar_system.list_planets}"
+        puts "Your planet #{users_new_planet.name} has been added to the solar system: #{solar_system.list_planets}"
         break
 
 
