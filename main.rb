@@ -44,7 +44,7 @@ def main
     end
     
     puts "----------------------------------------"
-    print "What would you like to do next? You can type...\n-'list planets' to list planets\n-'exit' to exit the program\n-'add planet' to add a planet\n-'planet details' to learn more about a specific planet\n-'distance between' to get the distance between two planets\nYour choice: "
+    print "What would you like to do next? You can type...\n- 'list planets' to list planets\n- 'add planet' to add a planet\n- 'planet details' to learn more about a specific planet\n- 'distance between' to get the distance between two planets\n- 'exit' to exit the program\nYour choice: "
     user_input = gets.chomp
   end
 
