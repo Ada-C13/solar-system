@@ -9,9 +9,9 @@ def add_planet_case(solar_system)
   planet_color = gets.chomp.downcase
 
   puts "What about its weight (in kg)?"
-  weight = gets.chomp
+  weight = gets.chomp.to_i
   entered_int = Integer(weight) rescue false # check if user entered a bad value for a new planet's mass
-  until entered_int != false 
+  while entered_int == 0
     puts "Wrong weight. Try again." # prompt the user the an integer is entered
     weight = gets.chomp.to_i
     entered_int = Integer(weight) rescue false 
@@ -25,7 +25,6 @@ def add_planet_case(solar_system)
     puts "Invalid entery. Please try again." # prompt the user the an integer is entered
     distance = gets.chomp.to_i
     distance_int = Integer(distance) rescue false 
-    puts distance_int
   end
   dis_sun = distance_int
 
