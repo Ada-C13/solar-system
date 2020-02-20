@@ -20,14 +20,19 @@ class SolarSystem
     return planet_string_list
   end
 
-  def which_planet_details 
+  def which_planet_details
     puts "What planet do you want to know about (Mars, or Saturn)?"
-      user_planet_choice = gets.chomp
-    if user_planet_choice.downcase == "mars" || user_planet_choice.downcase == "saturn"        
-      found_planet = find_planet_by_name(user_planet_choice)
-      puts found_planet.summary
-    else
-      puts "You did not input a valid response."
+    user_planet_choice = gets.chomp
+
+    @planets.each do|planet|
+      if planet.name.downcase == user_planet_choice.downcase 
+         return planet.summary
+      end
+    # if user_planet_choice.downcase == "mars" || user_planet_choice.downcase == "saturn"        
+    #   found_planet = find_planet_by_name(user_planet_choice)
+    #   puts found_planet.summary
+    # else
+    #   puts "You did not input a valid response."
     end
   end
 

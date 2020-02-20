@@ -11,18 +11,43 @@ def main
   sun.add_planet(mars)
   sun.add_planet(saturn)
 
+  def add_planet
+    puts "So, you want to add a planet. Well I need some info! What is it's name?"
+    name = gets.chomp.to_s
+
+    puts "What color is #{name.capitalize}?"
+    color = gets.chomp.to_s
+
+    puts "What is the mass in Kilograms of #{name.capitalize}?"
+    mass_kg = gets.chomp.to_i
+
+    puts "What is #{name.capitalize}'s distance from the sun in kilometers?"
+    distance = gets.chomp.to_i
+
+    puts "What is a fun fact about #{name.capitalize}?"
+    fact = gets.chomp.to_s
+
+    name = Planet.new(name, color, mass_kg, distance, fact)
+    return name
+    sun.add_planet(name)
+  end
+
+
   loop_value = "use loop"
 
   while loop_value == "use loop"
-    puts "Type 'list' if you want a list of planets, 'planet details' if you want the details on a planet, or type 'exit' if you would like to exit the program."
+    puts "What would you like to do: \n 1: List Planet\n 2: Planet Details\n 3: Add Planet\n 4: Exit"
+
     user_input = gets.chomp
 
-      if user_input.downcase == "list" || user_input.downcase == "exit" || user_input.downcase == "planet details"
+      if user_input.downcase == "list planet" || user_input.downcase == "exit" || user_input.downcase == "add planet" || user_input.downcase == "planet details"
 
-        if user_input.downcase == "list"
+        if user_input.downcase == "list planet"
           puts sun.list_planets
         elsif user_input.downcase == "planet details"
           puts sun.which_planet_details
+        elsif user_input.downcase == "add planet"
+          add_planet
         else 
           loop_value = "stop loop"
         end
