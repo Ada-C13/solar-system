@@ -10,7 +10,7 @@ class SolarSystem
   end 
 
   def add_planet(planet_instance) 
-    # If we have the same planet name in our solar system, throw an error
+    # If we have the same planet name in our solar system, raise an error
     if @planets.include?(planet_instance)
       raise ArgumentError.new("\n==> This planet, #{planet_instance.name} already exists in our solar system.")
     end 
@@ -36,7 +36,7 @@ class SolarSystem
     end 
 
     # edge case 
-    # if there is no planet with the given name, throw an error
+    # if there is no planet with the given name, raise an error
     if found_planet.empty?     
       raise ArgumentError.new("\n==> The planet named, #{planet_name} is NOT found in our solar system.")
     end 
@@ -66,4 +66,3 @@ class SolarSystem
     end 
   end 
 end 
-

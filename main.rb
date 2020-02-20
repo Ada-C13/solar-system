@@ -2,9 +2,9 @@ require_relative 'lib/planet'
 require_relative 'lib/solar_system'
 
 def display_welcome_message
-  puts "============================"
-  puts "Welcome to Ada Solar System!"
-  puts "============================"
+  puts "=============================="
+  puts "Welcome to Ada Solar System!🪐"
+  puts "=============================="
 end
 
 def paint_on_gray(string)
@@ -188,3 +188,82 @@ def main
 end 
 
 main
+
+
+# output 
+# ==============================
+# Welcome to Ada Solar System!🪐
+# ==============================
+
+# Choose one of the following options:
+# (1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit
+#  > 3
+
+# Enter a name of the planet you'd like to add:
+# > ruby 
+# Color: red
+# Mass(kg): 500
+# Distance from sun (km): 10099.89
+# Fun fact: Ruby is the birthstone for July!
+
+# Choose one of the following options:
+# (1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit
+#  > 1
+
+# Here is the planets list
+# Planets orbiting Sun
+# 1. Mercury
+# 2. Venus
+# 3. Earth
+# 4. Mars
+# 5. Jupiter
+# 6. Ruby
+
+# Choose one of the following options:
+# (1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit
+#  > 2
+
+# Enter a name of the planet you'd like to learn about:
+# > Ruby
+
+# Here is the planet details
+# +-------------------+----------------------------------+
+# | Name              | Ruby                             |
+# | Color             | red                              |
+# | Distance from sun | 10099.89 km                      |
+# | Mass              | 500.0 kg                         |
+# | Fun fact          | Ruby is the birthstone for July! |
+# +-------------------+----------------------------------+
+
+# Choose one of the following options:
+# (1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit
+#  > 2
+
+# Enter a name of the planet you'd like to learn about:
+# > venus
+
+# Here is the planet details
+# +-------------------+--------------------------------------------------------+
+# | Name              | Venus                                                  |
+# | Color             | yellowish white                                        |
+# | Distance from sun | 107700000.0 km                                         |
+# | Mass              | 4.867e+24 kg                                           |
+# | Fun fact          | Only planet in the Solar System to be named after a fe |
+# |                   | male figure                                            |
+# +-------------------+--------------------------------------------------------+
+
+# Choose one of the following options:
+# (1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit
+#  > 4
+
+# Here is the distance between 2 planets
+# Planet #1: ruby
+# Planet #2: mercury
+# The distance between Ruby and Mercury is 57889900.11km.
+
+# Choose one of the following options:
+# (1) list planets, (2) planet details, (3) add planet, (4) find distance between 2 planets, (5) exit
+#  > 5
+# ================================
+# Goodbye! Exiting the program...
+# ================================
