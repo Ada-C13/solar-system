@@ -48,15 +48,19 @@ def main
 
         solar_system.add_planet(Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact))
       when "4", "distance", "distance between", "distance between planets"
-        print "First planet: "
-        planet_one = solar_system.find_planet_by_name(gets.chomp)
-        p planet_one.name
+        planets = []
 
-        print "Second planet: "
-        planet_two = solar_system.find_planet_by_name(gets.chomp)
-        p planet_two.name
+        2.times do |i|
+          print "Planet #{i + 1}: "
+          planets << solar_system.find_planet_by_name(gets.chomp)
 
-        puts "#{planet_one.name} and #{planet_two.name} are #{solar_system.distance_between(planet_one, planet_two)}km apart."
+          until planets[i].respond_to?(:summary)
+            print "Planet #{i + 1}: "
+            planets[i] = solar_system.find_planet_by_name(gets.chomp)
+          end
+        end
+
+        puts "#{planets[0].name} and #{planets[1].name} are #{solar_system.distance_between(planets[0], planets[1])}km apart."
       when "5", "exit"
         input = "exit"
       else
