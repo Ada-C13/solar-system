@@ -9,7 +9,6 @@ class SolarSystem
   end
 
   def add_planet(planet)
-    # @planets << planet
     @planets.push(planet)
   end
 
