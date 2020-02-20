@@ -1,5 +1,5 @@
 class Planet
-	attr_accessor :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
+	attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 	
 	def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
 		@name = name
