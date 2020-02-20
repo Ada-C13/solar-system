@@ -1,25 +1,35 @@
-describe "== SolarSystem class ==" do 
-  it "will return corresponding values for instance variables of <SolarSystem> class" do 
+require 'minitest/autorun'
+require 'minitest/reporters'
+require 'minitest/skip_dsl'
+require_relative '../lib/planet'
+require_relative '../lib/solar_system'
 
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+describe "== SolarSystem class (initialize) ==" do 
+
+  it "takes a <star_name> and <planets>" do 
+    
     # Arrange 
     solar_system = SolarSystem.new('Sun')
-
+  
     # Act & Assert
+    expect(solar_system).must_respond_to :star_name
+    expect(solar_system).must_respond_to :planets
     expect(solar_system.star_name).must_equal "Sun"
   end 
-
-
+  
   it "will return corresponding data types for instance variables of <SolarSystem> class" do 
 
     # Arrange 
     solar_system = SolarSystem.new('Sun')
-
+  
     # Act & Assert
     expect(solar_system.planets).must_be_instance_of Array 
     solar_system.planets.each do |planet_instance|
       expect(planet_instance).must_be_instance_of Planet # Planet class
     end 
-  end 
+  end  
 end 
 
 
