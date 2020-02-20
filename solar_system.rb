@@ -1,7 +1,6 @@
 require_relative "planet"
 
 class SolarSystem
-
   attr_reader :star_name, :planets
 
   def initialize(star_name)
@@ -14,12 +13,12 @@ class SolarSystem
   end
 
   def list_planets
-    plantes_list = "Planets orbiting #{star_name}:\n"
+    planets_list = "\nPlanets orbiting #{star_name}:\n"
     @planets.each_with_index do |planet, index|
-      plantes_list << "#{index + 1}. #{planet.name}\n" 
+      planets_list << "#{index + 1}. #{planet.name}\n"
     end
 
-    return plantes_list
+    return planets_list
   end
 
   def find_planet_by_name(planet_name)
@@ -28,6 +27,7 @@ class SolarSystem
         return planet
       end
     end
-  end
 
+    return "no such planet"
+  end
 end
