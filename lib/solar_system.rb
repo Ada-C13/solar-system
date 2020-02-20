@@ -16,7 +16,7 @@ class SolarSystem
   end
 
   def list_planets
-    list = "Planets orbiting the #{@star_name}\n"
+    list = "\nPlanets orbiting the #{@star_name}\n"
     @planets.each_with_index do |planet, index|
       list += "#{index + 1}. #{planet.name}\n"
     end

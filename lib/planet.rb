@@ -16,12 +16,11 @@ class Planet
   end
   
   def summary
-    return "Fun fact about #{@name}: #{@fun_fact}."
+    info = "Name = #{@name}\n" + 
+           "Color = #{@color}\n" +
+           "Mass = #{@mass_kg} Kg\n" +
+           "Distance from Sun = #{@distance_from_sun_km} Km\n" +
+           "Fun Fact = #{@fun_fact}\n"
+    return info 
   end
-
-  def mass_lb
-    return @mass_kg * 2.205
-  end
-
-
 end

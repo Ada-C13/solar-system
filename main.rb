@@ -7,14 +7,6 @@
 require_relative "lib/planet"
 require_relative "lib/solar_system"
 
-def show_planet(planet)
-  puts "Name = #{planet.name}"
-  puts "Color = #{planet.color}"
-  puts "Mass = #{planet.mass_kg} Kg"
-  puts "Distance from Sun = #{planet.distance_from_sun_km} Km"
-  puts "Fun Fact = #{planet.fun_fact}"  
-end
-
 def add_new_planet(solar)
   puts "Enter the data for the new planet."
   print "Name: "
@@ -28,7 +20,7 @@ def add_new_planet(solar)
   print "Fun Fact: "
   fun_fact = gets.chomp
   new_planet = Planet.new(name, color, mass_kg, distance, fun_fact)
-  show_planet(new_planet)
+  puts new_planet.summary
   puts "\nDo you confirm you want to add this planet? (Y/N) "
   confirm = gets.chomp.upcase
   if confirm == "Y" || confirm == "YES"
@@ -44,7 +36,7 @@ def planet_details(solar)
   planet_name = gets.chomp
   begin
     planet = solar.find_planet_by_name(planet_name)
-    show_planet(planet)
+    puts planet.summary
   rescue
     puts "This planet is not in the system."    
   end
