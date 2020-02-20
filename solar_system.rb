@@ -9,8 +9,6 @@ class SolarSystem
 
   def add_planet(planet)
     @planets << planet
-    p @planets
-    p @planets[0].name
   end
 
   def list_planets
