@@ -1,5 +1,5 @@
 require_relative "planet"
-require_relative "solar_system.rb"
+require_relative "solar_system"
 
 def prompt_new_planet
   puts "Please input the name of the planet:"
