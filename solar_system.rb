@@ -32,6 +32,14 @@ class SolarSystem
         return string
     end
 
-
+    def find_planet_by_name(name)
+        planets.each do |planet|
+            if planet.name.downcase == name.downcase 
+                return planet
+            else
+                return nil
+            end
+        end 
+    end
 end
 

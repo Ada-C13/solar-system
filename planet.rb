@@ -19,12 +19,5 @@ class Planet
     def summary
         return "The planet's name is #{@name}, the color is #{@color} with the weight of #{@mass_kg}kg, it is #{@distance_from_sun_km}km from the sun, and it is the #{@fun_fact}"
     end
-
-  
-
-
-
-
-
 end
 
