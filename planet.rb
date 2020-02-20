@@ -18,19 +18,5 @@ class Planet
     def summary
       return "Planet #{name}, is a #{color} planet, #{mass_kg}kg big, and is #{distance_from_sun_km}km away from the sun. #{fun_fact}."
     end
-
-    
-   
-
-
-
 end 
 
-## Each instance of this class will keep track of information about a single planet.
-
-## Each parameter should be saved in an instance variable with the same name (e.g. @color for color). 
-## These instance variables should be readable from outside the class, but not writable.
-
-# earth = Planet.new('Earth', 'blue-green', -5.972e24, 1.496e8, 'Only planet known to support life')
-
-# puts earth.name

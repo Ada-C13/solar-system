@@ -22,17 +22,41 @@ def main
   solar_system.add_planet(uranus)
   solar_system.add_planet(neptune)
   
-  
-  list = solar_system.list_planets
-  # puts list
+ 
+  option = ""
+  until option == "exit"
+    puts "Would you like to: list planets, planet details, add planet, or exit"
+    option = gets.chomp.downcase
 
-  found_planet = solar_system.find_planet_by_name('Earth')
-
-  puts found_planet
-  # => #<Planet:0x00007fe7c2868ee8>
-
-  puts found_planet.summary
-  # => Earth is a blue-green planet ...
+    if option == "list planets"
+      list = solar_system.list_planets  
+      puts list
+    elsif option == "exit" 
+        puts "Exiting the program..." 
+    elsif option == "planet details"
+      puts "What planet do you want to know about?"
+      input_planet = gets.chomp.downcase
+      puts solar_system.find_planet_by_name(input_planet).summary
+    elsif option == "add planet"
+      puts "What is the name of your planet"
+      name = gets.chomp.capitalize
+      added_planet = name.downcase
+      puts "What is the color of your planet"
+      color = gets.chomp.capitalize
+      puts "What is the size of your planet in kg?"
+      mass_kg = gets.chomp.to_i
+      puts "what is the distance from the sun in km?"
+      distance_from_the_sun = gets.chomp.to_i
+      puts "What is a fun fact about your planet?"
+      fun_fact = gets.chomp
+      added_planet = Planet.new(name, color, mass_kg, distance_from_the_sun, fun_fact)
+      solar_system.add_planet(added_planet)
+      puts solar_system.find_planet_by_name(added_planet.name).summary
+    else
+        puts "Please enter valid input: \'list planets\', \'planet details\', \'add planet\' or \'exit\' "
+    end
+  end
 end
 
 main
+

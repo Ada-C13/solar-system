@@ -8,9 +8,7 @@ class SolarSystem
   attr_reader :star_name, :planets
   def initialize(star_name)
     @star_name = star_name
-    # ap star_name
     @planets = Array.new
-    # ap @planets
   end
 
   def add_planet(planet)
