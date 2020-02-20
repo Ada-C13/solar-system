@@ -19,7 +19,7 @@ def main
 	jupiter = Planet.new("Jupiter", "blue-red", 1.898e27, 817e6, "Jupiter is the largest planet in our solar system")
 	solar_system.add_planet(jupiter)
 
-	saturn = Planet.new("Saturn", "pink", 5.69e26, 1.5e9, "Saturn\'s rings are made primarily of "water ice" mixed with dust and other chemicals")
+	saturn = Planet.new("Saturn", "pink", 5.69e26, 1.5e9, "Saturn\'s rings are made primarily of \"water ice\" mixed with dust and other chemicals")
 	solar_system.add_planet(saturn)
 
 	uranus = Planet.new("Uranus", "blue", 8.68e25, 3e9, "Uranus is the coldest planet in our solar system")
