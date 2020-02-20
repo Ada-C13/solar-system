@@ -1,3 +1,5 @@
+require 'pry'
+
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -25,7 +27,8 @@ class SolarSystem
       if planet.name.downcase == input
         return planet
       end 
-    end 
+    end
+    return nil
   end 
 
   def distance_between(planet_a, planet_b)
@@ -54,7 +57,14 @@ class SolarSystem
       puts self.list_planets
       puts "which planet would you like to learn more about?(type it in)"
       planet_to_learn = gets.chomp.downcase
-      puts self.find_planet_by_name(planet_to_learn).summary
+      user_want_to_learn = self.find_planet_by_name(planet_to_learn)
+
+      if user_want_to_learn.nil?
+        puts "#{planet_to_learn} is not in the list!!!"
+        next
+      end
+
+      puts user_want_to_learn.summary
       puts "would you like to learn about another planet? y/n"
       again = gets.chomp.downcase
     end 
