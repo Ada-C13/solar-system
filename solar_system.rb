@@ -14,7 +14,7 @@ class SolarSystem
     end
 
     def list_planets
-        # return (not puts) string containing a list of all the planets in the system.
+        # return string containing a list of all the planets in the system.
         string = "Planets orbiting #{star_name}\n"
         num = 0
         planets.each do |item|
