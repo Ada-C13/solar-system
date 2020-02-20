@@ -8,7 +8,7 @@ def main
   mercury = Planet.new('Mercury', 'red', 0.330e24, 57e6, 'Mercury is the smallest planet in our Solar System.')
   venus = Planet.new('Venus', 'yellow', 4.87e24, 108e6, 'Venus is the hottest planet in the Solar System.')
   jupiter = Planet.new('Jupiter', 'blue-red', 1.898e27, 817e6, 'Jupiter is the largest planet in our Solar System.')
-  saturn = Planet.new('Saturn', 'pink', 5.69e26, 1.5e9, 'Saturn\’s rings are made primarily of “water ice” mixed with dust and other chemicals.')
+  saturn = Planet.new('Saturn', 'pink', 5.69e26, 1.5e9, "Saturn’s rings are made primarily of “water ice” mixed with dust and other chemicals.")
   uranus = Planet.new('Uranus', 'blue', 8.68e25, 3e9, 'Uranus is the coldest of the planets.')
  
   solar_system = SolarSystem.new('Sol')
@@ -20,31 +20,31 @@ def main
   solar_system.add_planet(saturn)
   solar_system.add_planet(uranus)
 
-  puts "Would you like to list the planets? Type 'list' to list planets or 'exit' to exit the program."
+  print "What would you like to do? Type 'list planets' to list planets or 'exit' to exit the program: "
   user_input = gets.chomp
 
   while user_input.downcase != "exit"
-    if user_input == "list"
+    puts "----------------------------------------"
+   
+    if user_input.downcase == "list planets"
       puts solar_system.list_planets
-    elsif solar_system.planets.map { |planet| planet.name.downcase }.include?(user_input.downcase) 
-      puts solar_system.find_planet_by_name(user_input).summary
-    elsif user_input.downcase == "add"
-      print "Please enter the name of the planet: "
-      name = gets.chomp
-      print "Please enter the color of the planet: "
-      color = gets.chomp
-      print "Please enter the mass of the planet in kg: "
-      mass_kg = gets.chomp.to_f
-      print "Please enter the distrance from the sun in km: "
-      distance_from_sun_km = gets.chomp.to_f
-      print "Please enter a fun fact about the planet: "
-      fun_fact = gets.chomp 
-      new_planet = Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact)
-      solar_system.add_planet(new_planet)
+    elsif user_input.downcase == "planet details"
+      puts solar_system.get_planet_details
+    elsif user_input.downcase == "add planet"
+      solar_system.create_and_add_planet_to_solar_system
+    elsif user_input.downcase == "distance between"
+      print "For planet #1: "
+      planet_1 = solar_system.get_verified_planet_info
+      print "For planet #2: "
+      planet_2 = solar_system.get_verified_planet_info
+      puts "----------------------------------------"
+      puts "The distance between #{planet_1.name} and #{planet_2.name} is #{solar_system.distance_between(planet_1, planet_2)} km."
     else
       puts "sorry I don't know what you want me to do"
     end
-    puts "What would you like to do next? Type 'list' to list planets, 'exit' to exit the program, 'add' to add a planet, or a planet's name to learn more about the planet"
+    
+    puts "----------------------------------------"
+    print "What would you like to do next? You can type...\n-'list planets' to list planets\n-'exit' to exit the program\n-'add planet' to add a planet\n-'planet details' to learn more about a specific planet\n-'distance between' to get the distance between two planets\nYour choice: "
     user_input = gets.chomp
   end
 
