@@ -48,7 +48,7 @@ def main
   solar_system.add_planet(Planet.new('Mars', 'brown', 8, 10, 'aliens exist'))
 
   puts "
-  what shall we do next (select a number)?
+  what shall we do next (select a number or exit)?
   1. list planets
   2. planet details 
   3. add planet
@@ -59,7 +59,7 @@ def main
       if input == '1'
         puts solar_system.list_planets
         puts "
-        what shall we do next (select a number)?
+        what shall we do next (select a number or exit)?
           1. list planets
           2. planet details 
           3. add planet"
@@ -70,7 +70,7 @@ def main
         this_planet = gets.chomp.upcase 
         puts planet_details(this_planet, solar_system)
         puts "
-        what shall we do next (select a number)?
+        what shall we do next (select a number or exit)?
           1. list planets
           2. planet details 
           3. add planet"
@@ -82,7 +82,7 @@ def main
           puts planet.summary
         end 
         puts "  
-        what shall we do next (select a number)?
+        what shall we do next (select a number or exit)?
           1. list planets
           2. planet details 
           3. add planet"
@@ -90,9 +90,9 @@ def main
       end 
   end
   #should output place in memory
-  puts solar_system.find_planet_by_name("earth")
+  #puts solar_system.find_planet_by_name("earth")
   #should return "did not find planet" because planet doesnt exist unless created in control loop
-  puts solar_system.find_planet_by_name("quin")
+  #puts solar_system.find_planet_by_name("quin")
 end
 
 main()
