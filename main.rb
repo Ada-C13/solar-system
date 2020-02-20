@@ -1,10 +1,7 @@
 require_relative "lib/planet"
 require_relative "lib/solar_system"
 
-# creating methods to use within the main method
-def display_intro
-  puts "Welcome and explore this solar system... To infinity and beyond!"
-end
+## creating methods to use within the main method
 # method to create planet for add planet option
 def create_planet(solar)
   puts "Let's create a planet for this solar system..."
@@ -36,15 +33,6 @@ def create_planet(solar)
   return new_planet
 end
 
-def display_options
-  puts "\nWhat's next? Enter 1, 2, 3, 4, or 5 for the following options."
-  puts "1. list planets"
-  puts "2. add planet"
-  puts "3. planet details"
-  puts "4. distance between planets"
-  puts "5. exit"
-end
-
 def get_planet_to_look_up
   puts "Please enter the planet name you want to look up:"
   input_name = gets.chomp
@@ -63,6 +51,19 @@ def run_distance_between(solar)
   planet_chosen_2 = get_planet_to_look_up
   planet2 = solar.find_planet_by_name(planet_chosen_2)
   return solar.distance_between(planet1, planet2)
+end
+
+def display_options
+  puts "\nWhat's next? Enter 1, 2, 3, 4, or 5 for the following options."
+  puts "1. list planets"
+  puts "2. add planet"
+  puts "3. planet details"
+  puts "4. distance between planets"
+  puts "5. exit"
+end
+
+def display_intro
+  puts "Welcome and explore this solar system... To infinity and beyond!"
 end
 
 # create main method to run the interactive program
