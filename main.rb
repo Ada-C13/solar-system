@@ -1,4 +1,6 @@
 require_relative "planet"
+require_relative "solar_system"
+require "pry"
 
 def main()
 
@@ -8,9 +10,10 @@ def main()
 
   venus = Planet.new("Venus", "ochre", "4.867 × 10^24 kg", "107.73 million km", "One day on Venus lasts 243 days on Earth.")
 
-  
+
   our_ss.add_planet(mercury)
   our_ss.add_planet(venus)
 end
 
 main()
+list_planets
