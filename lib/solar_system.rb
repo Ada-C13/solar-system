@@ -30,7 +30,7 @@ class SolarSystem
     found_planet = @planets.select { |planet| planet.name == planet_parameter } # returns an array
 
       if found_planet.empty?
-        # something great!
+        return nil
       end
 
       if found_planet.length > 1

@@ -45,6 +45,7 @@ def valid_input(user_choice)
   return user_choice
 end
 
+# checks for positive number for mass and distance
 def valid_number(user_number)
   user_number = gets.chomp.to_f
   until user_number > 0
@@ -55,8 +56,7 @@ def valid_number(user_number)
   return user_number.to_f
 end
 
-# returns a valid word to trigger control loop
-# used in get_choice
+# returns a valid word to trigger control loop (used in get_choice method)
 def user_wants_to(user_choice_parameter)
   case user_choice_parameter
   when "1", "1.", "list", "list planets"
@@ -70,8 +70,7 @@ def user_wants_to(user_choice_parameter)
   end 
 end
 
-# method for adding a planet to the solar system
-# take input from user as parameters
+# method for adding a planet to the solar system (taking user input as arguments)
 def user_added_planet
   print "What is this planet's name? ==> "
   name = gets.chomp
@@ -102,11 +101,10 @@ def main
   puts "You've got a few choices ahead of you..."
   
   user_choice = ""
-  
+  user_choice = get_choice
+
   # control loop
   until user_choice == "exit"
-    user_choice = get_choice
-    # if we enter 1 here, the user_choice is still 1 (case statement isn't triggered yet)
     
     while user_choice == "list"
       puts sun.list_planets
@@ -117,12 +115,12 @@ def main
       print "\nWhat planet do you want to know more about? ==> "
       user_planet = gets.chomp
       found_planet = sun.find_planet_by_name(user_planet)
-      # if found planet is not in solar system yet, let them know!
       
-      # what gets returned if the planet is empty, and how to handle that so it doesn't interfere with summary method
-      
-      #otherwise, print the summary of that planet object
-      puts found_planet.summary
+      if found_planet == nil
+        puts "#{user_planet} has yet to be discovered in our solar system."
+      else
+        puts found_planet.summary
+      end
       
       user_choice = get_choice
     end
@@ -135,11 +133,8 @@ def main
       user_choice = get_choice
     end
     
-    if user_choice == "exit"
-      puts "See you later!"
-      exit
-    end
   end 
+  puts "See you later!"
 end
 
 main
