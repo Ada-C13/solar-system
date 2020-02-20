@@ -83,8 +83,8 @@ def main
   def valid_planet_arg? (input, variable)
     case variable 
     when "name","color","fun fact"
-      input = input.to_s 
-      input.class == String ? true : false
+      input = input.to_s # TO-DO: update this validation to be more substantial, current version is effectively meaningless
+      input.class == String ? true : false # all strings are strings, silly.
     when "mass (kg)","distance from sun (km)"
       input = input.to_i / 1
       input > 0 ? true : false 
