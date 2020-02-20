@@ -1,5 +1,4 @@
 class SolarSystem
-    # readable, not writeable
     attr_reader :star_name, :planets
 
     def initialize(star_name)
@@ -7,7 +6,6 @@ class SolarSystem
         @planets = []
     end
 
-    # methods
     def add_planet(planet)
         # take an instance of Planet as a parameter and add it to the list of planets.
         planets << planet
@@ -27,17 +25,14 @@ class SolarSystem
     def find_planet_by_name(string)
         # takes the name of a planet as a string, and returns the corresponding instance of Planet
         string = string.downcase.capitalize
-        
         planets.each do |item|
             if item.name == string
                 return item #.name
             end
         end
-        # cannot find planet scenario, needs to handle nil summary
+        # cannot find planet scenario
         if planets.include?(string) == false
             return "Planet not found"
         end
-
     end
-
 end
