@@ -24,8 +24,9 @@ def main
     case input
       when "1", "details", "planet details"
         print "\nWhat planet do you want information on? "
-        planet = gets.chomp
-        puts solar_system.find_planet_by_name(planet).summary
+        planet = solar_system.find_planet_by_name(gets.chomp)
+        
+        puts planet.respond_to?(:summary) ? planet.summary : planet
       when "2", "list", "list planets"
         puts "\n#{solar_system.list_planets}"
       when "3", "add", "add planet"
