@@ -1,5 +1,3 @@
-require 'pry'
-
 class SolarSystem 
   attr_reader :planets, :star_name
 
@@ -22,12 +20,8 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet)
-    # if @planets.include?(planet)
-    #   binding.pry
-    #   return planet
     @planets.each do |body|
       body.name.downcase!
-      # binding.pry
       if body.name == planet
         return body
       end
