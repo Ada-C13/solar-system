@@ -7,6 +7,7 @@
 require_relative "lib/planet"
 require_relative "lib/solar_system"
 
+# Add a new planet to the Solar System
 def add_new_planet(solar)
   puts "Enter the data for the new planet."
   print "Name: "
@@ -19,7 +20,7 @@ def add_new_planet(solar)
   distance = gets.chomp.to_f
   print "Fun Fact: "
   fun_fact = gets.chomp
-  new_planet = Planet.new(name, color, mass_kg, distance, fun_fact)
+  new_planet = Planet.new(name, color, mass_kg, distance, fun_fact) # particular object. Built using a class's new method
   puts new_planet.summary
   puts "\nDo you confirm you want to add this planet? (Y/N) "
   confirm = gets.chomp.upcase
@@ -31,6 +32,7 @@ def add_new_planet(solar)
   end
 end
 
+# Show planet details
 def planet_details(solar)
   print "What is the name of the planet? "
   planet_name = gets.chomp
@@ -42,6 +44,7 @@ def planet_details(solar)
   end
 end
 
+# Find distance between two planets
 def planet_distance(solar)
   print "Name of first planet: "
   first_planet = gets.chomp.capitalize
@@ -55,6 +58,7 @@ def planet_distance(solar)
   end
 end
 
+# Add planets to Solar System
 def add_all_planets(solar)
   mercury = Planet.new("Mercury", "red", 0.330e24, 57e6, "Mercury is the smallest planet in our Solar System.")
   venus   = Planet.new("Venus", "yellow", 4.87e24, 108e6, "Venus is the hottest planet in the Solar System.")
@@ -77,6 +81,7 @@ def add_all_planets(solar)
   solar.add_planet(pluto)
 end
 
+# Main method to show CLI options and call other methods
 def main
   solar = SolarSystem.new("Sun")
   add_all_planets(solar)

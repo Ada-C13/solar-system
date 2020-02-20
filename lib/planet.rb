@@ -5,8 +5,11 @@
 
 class Planet
 
+  # A code that adds functionality to a class, like reader or writer methods
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
   
+  # Method for the Constructor, called automatically when a new instance of a class is created
+  # Takes care of any initial setup. Any arguments passed to new will be passed to the constructor.
   def initialize(name, color, mass, dist, fact)
     @name = name
     @color = color
@@ -23,4 +26,5 @@ class Planet
            "Fun Fact = #{@fun_fact}\n"
     return info 
   end
+
 end
