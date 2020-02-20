@@ -29,24 +29,22 @@ def main
       when "2", "list", "list planets"
         puts "\n#{solar_system.list_planets}"
       when "3", "add", "add planet"
+        info = {
+          :name => "Planet Name: ",
+          :color => "Color: ",
+          :mass_kg => "Mass (kg): ",
+          :distance_from_sun_km => "Distance from sun (km): ",
+          :fun_fact => "Fun fact: "
+        }
+        
         puts "Please enter the following information:"
 
-        print "Planet Name: "
-        name = gets.chomp.capitalize
+        info.each do |key, value|
+          print value
+          info[key] = gets.chomp
+        end
 
-        print "Color: "
-        color = gets.chomp
-
-        print "Mass (kg): "
-        mass_kg = gets.chomp.to_f
-
-        print "Distance from sun (km): "
-        distance_from_sun_km = gets.chomp.to_f
-
-        print "Fun fact: "
-        fun_fact = gets.chomp
-
-        solar_system.add_planet(Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact))
+        solar_system.add_planet(Planet.new(info[:name].capitalize, info[:color], info[:mass_kg].to_f, info[:distance_from_sun_km].to_f, info[:fun_fact]))
       when "4", "distance", "distance between", "distance between planets"
         planets = []
 
