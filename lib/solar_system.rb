@@ -31,6 +31,8 @@ class SolarSystem
   end
 
   def distance_between(planet_1, planet_2)
+    planet_1 = find_planet_by_name(planet_1)
+    planet_2 = find_planet_by_name(planet_2)
     distance = planet_1.distance_from_sun_km.to_i - planet_2.distance_from_sun_km.to_i
     return "#{planet_1.name} is #{distance.abs} km from #{planet_2.name}."
   end

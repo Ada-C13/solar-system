@@ -31,7 +31,7 @@ def main
 
   user_input = " "
   until user_input == 'exit'
-    puts "What would you like to do next? \n List planets, planet details, add planet, or exit?"
+    puts "What would you like to do next? \n List planets, planet details, add planet, distance between planets, or exit?"
     user_input = gets.chomp.to_s.downcase
 
     case user_input
@@ -49,6 +49,12 @@ def main
       end
     when 'add planet'
       solar_system.add_planet(add_new_planet)
+    when 'distance between planets'
+      puts "What is the first planet?"
+      planet_1 = gets.chomp.downcase
+      puts "What is the second planet?"
+      planet_2 = gets.chomp.downcase
+      puts solar_system.distance_between(planet_1, planet_2)
     when 'exit'
       exit
     else 
@@ -56,8 +62,6 @@ def main
     end
     
   end
-
-  puts solar_system.distance_between(venus, mars)
   
 end
 
