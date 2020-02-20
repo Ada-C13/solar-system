@@ -15,6 +15,6 @@ class Planet
   end
 
   def summary
-    return "#{self.name} is the color #{self.color}, it weighs #{self.mass_kg} kg, is #{self.distance_from_sun_km} km from the sun, and a fun fact: #{self.fun_fact}." 
+    return "#{self.name} is the color #{self.color}, it weighs #{self.mass_kg} kg, it's #{self.distance_from_sun_km} km from the sun, and a fun fact is: #{self.fun_fact}." 
   end
 end

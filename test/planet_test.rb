@@ -7,6 +7,7 @@ require_relative '../lib/planet.rb'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 describe 'planet' do
+  
   it 'takes in an argurment that is a number that is greater than 0' do
     mass_kg = mass_kg
     expect{Planet.new('earth','blue-green', 0, 10, 'the only planet that can support life' )}.must_raise ArgumentError
