@@ -7,7 +7,6 @@ class SolarSystem
   end
 
   def add_planet(planet)
-    # puts "1.Inside of a class #{planet.name}"
     return @planets << planet
   end
 

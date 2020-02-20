@@ -22,7 +22,7 @@ class Planet
   # Check input, checks is a number and is geeater than 0
   def check_input(value)
     # Checks is a number
-    raise 'Not a number' unless (value.is_a?(Integer) || value.is_a?(Float))
+    raise "Not a number" unless (value.is_a?(Integer) || value.is_a?(Float))
     # Checks value is greater than zero
     raise "Not valid value, value should be greater than zero"  unless value > 0
     return value

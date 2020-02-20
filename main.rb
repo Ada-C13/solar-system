@@ -9,10 +9,12 @@ def main
   # Create solar system object
   @solar_system = SolarSystem.new('Sol')
 
+  # Pre existing planets.
   add_planet_to_solar_system("Earth", "blue-green", 5.972e24, 1.496e8, "Only planet known to support life")
   add_planet_to_solar_system("Mars", "red", 6.39e23, 1.496e8, "it is suspected that billions of years ago Mars was much warmer and had water")
   add_planet_to_solar_system("Pluto", "varied, grey-orange", 1.30900e22, 5.906e9, "Named after the Roman god of the underworld")
-
+  
+  # Function to create a new planet 
   def add_planet
     puts "Planet name:"
     planet_name = gets.chomp
@@ -33,6 +35,7 @@ def main
     planet_details(planet_name)
   end
 
+  # Function to looking for a specific planet.
   def planet_details(name)
     found_planet = @solar_system.find_planet_by_name(name)
     # Raise an error if the planet is not found.
@@ -50,6 +53,11 @@ def main
     end
   end
 
+  def diference_between_two_planets (planet1,planet2)
+    puts "\n"
+    puts "+++ Distance between 2 planets ++++"
+    puts "result: #{@solar_system.distance_between(planet1, planet2)}"
+  end
   puts "Welcome to the Solar System SOL"
 
   # Using a Promp Gem to have a nice menu.
@@ -58,17 +66,15 @@ def main
     menu.choice "List of planets"
     menu.choice "Planet details"
     menu.choice "Add Planet"
+    menu.choice "Know the distance differece between two planets"
     menu.choice "Exit"
   end
 
-# Function to looking for a specific planet.
-
-  
   # Case to handle the diffetent inputs drom the user.
   case user_input
     when "List of planets"
-        puts "\n"
-        puts "+++ #{@solar_system.list_planets}"
+      puts "\n"
+      puts "+++ #{@solar_system.list_planets}"
     when "Planet details"
       puts "planet"
       planet_to_find = gets.chomp
@@ -76,14 +82,18 @@ def main
     when "Add Planet"
       add_planet
       puts "+++ #{@solar_system.list_planets}"
+    when "Know the distance differece between two planets"
+      puts "Here is the list of the planet we have so far:"
+      puts @solar_system.list_planets
+      puts "Please enter the name of each planet:"
+      puts "Planet 1"
+      planet1 = gets.chomp
+      puts "Planet 2"
+      planet2 = gets.chomp
+      diference_between_two_planets(planet1,planet2)
     when "Exit"
       exit
   end
-
-  
-  puts "+++ Distance between 2 planets ++++"
-  puts "result: #{@solar_system.distance_between("Earth","Mars")}"
-
 end
 
 def add_planet_to_solar_system(name, color, mass_kg, distance_from_sun_km, fun_fact)
