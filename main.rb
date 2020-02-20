@@ -25,10 +25,12 @@ def main
       when "1", "details", "planet details"
         print "\nWhat planet do you want information on? "
         planet = solar_system.find_planet_by_name(gets.chomp)
-        
+
         puts planet.respond_to?(:summary) ? planet.summary : planet
+      
       when "2", "list", "list planets"
         puts "\n#{solar_system.list_planets}"
+
       when "3", "add", "add planet"
         info = {
           :name => "Planet Name: ",
@@ -46,13 +48,11 @@ def main
         end
 
         solar_system.add_planet(Planet.new(info[:name].capitalize, info[:color], info[:mass_kg].to_f, info[:distance_from_sun_km].to_f, info[:fun_fact]))
+      
       when "4", "distance", "distance between", "distance between planets"
         planets = []
 
         2.times do |i|
-          print "Planet #{i + 1}: "
-          planets << solar_system.find_planet_by_name(gets.chomp)
-
           until planets[i].respond_to?(:summary)
             print "Planet #{i + 1}: "
             planets[i] = solar_system.find_planet_by_name(gets.chomp)
@@ -60,14 +60,14 @@ def main
         end
 
         puts "#{planets[0].name} and #{planets[1].name} are #{solar_system.distance_between(planets[0], planets[1])}km apart."
+      
       when "5", "exit"
         input = "exit"
+      
       else
         puts "That's not a valid option, please try again."
     end
-
   end
-
 end
 
 main

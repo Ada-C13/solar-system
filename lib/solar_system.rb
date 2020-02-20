@@ -14,7 +14,7 @@ class SolarSystem
 
   def list_planets
     planet_list = "Planets orbiting #{@star_name}"
-    @planets.length.times do |i|
+    @planets.each_with_index do |planet, i|
       planet_list += "\n #{i + 1}. #{@planets[i].name}"
     end
 
