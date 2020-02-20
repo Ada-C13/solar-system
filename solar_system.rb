@@ -8,12 +8,12 @@ class SolarSystem
         @star_name = star_name
         @planets = []
     end
-
+    # Wave 2
     # Create a method SolarSystem#add_planet, 
     # which will take an instance of Planet as a parameter 
     # and add it to the list of planets.
 
-    def add_planet(planet)
+    def add_planet(planet) 
         @planets << planet
         return @planet
     end 
@@ -26,18 +26,17 @@ class SolarSystem
         string = "Planet orbiting #{@star_name}\n"
         num = 1
         @planets.each do |planet|
-        string += "#{num}. #{planet.name}\n"
-            num +=1
+            string += "#{num}. #{planet.name}\n"
+            num += 1
         end
         return string
     end
 
-    def find_planet_by_name(name)
+    #Create a method SolarSystem#find_planet_by_name
+    def find_planet_by_name(string)   
         planets.each do |planet|
-            if planet.name.downcase == name.downcase 
+            if planet.name.downcase == string.downcase 
                 return planet
-            else
-                return nil
             end
         end 
     end
