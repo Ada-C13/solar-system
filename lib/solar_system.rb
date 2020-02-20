@@ -20,6 +20,11 @@ class SolarSystem
 
   def find_planet_by_name(name)
     match = planets.find { |planet| planet.name.upcase == name.upcase }
+    while match == nil 
+      print "No planet with that name found. Try again. > "
+      name = gets.chomp
+      match = planets.find { |planet| planet.name.upcase == name.upcase }
+    end
     return match
   end
 

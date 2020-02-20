@@ -18,11 +18,11 @@ def main
 
 end
 
-
-# Method get_user_input is a helper method for main that prints menu of choices and collects user input.
+# Method get_user_input prints menu of choices and collects user input.
 # Returns a string representing the user's choice.
+# Exits the program when prompted.
 def get_user_input
-  puts "\n***** AVAILABLE OPTIONS *****"
+  puts "\n***** MAIN MENU *****"
   puts "A. list planets."
   puts "B. lookup planet details"
   puts "C. add a planet"
@@ -39,12 +39,17 @@ def get_user_input
   return choice
 end
 
+# Method perform_action accepts two parameters.
+# -action: the user's inputted choice.
+# -solar_system: the solar system of interest that actions will be performed upon.
+# Performs a user-specified action on the solar system object.
+# Error checks for invalid action input. 
 def perform_action(action, solar_system)
-  case action
-  when "A", "list planets"
+  case action.upcase
+  when "A", "LIST PLANETS"
     print "\n>>>>>>> "
     puts solar_system.list_planets
-  when "B", "lookup planet details"
+  when "B", "LOOKUP PLANET DETAILS"
     lookup_planet(solar_system)
   when "C", "ADD A PLANET"
     add_planet(solar_system)
@@ -55,20 +60,25 @@ def perform_action(action, solar_system)
   end
 end
 
+# Method lookup_planet prompts for planet name as user input 
+# and returns the results in pretty format.
 def lookup_planet(solar_system)
   print "Enter planet name for lookup > "
   name = gets.chomp
-  planet = find_planet_with_catch(name, solar_system)
+  planet = solar_system.find_planet_by_name(name)
   puts "\n>>>>>>> Results for: #{planet.name}"  
   puts planet.summary
 end
 
+# Method add_planet prompts for user input in order to 
+# instantiate a new planet and add it to the solar system.
 def add_planet(solar_system)
 
   planet_variables = ["name","color","mass (kg)","distance from sun (km)","fun fact"]
   new_planet_args = []
 
   puts ">>>>>>> ADDING NEW PLANET:"
+
   planet_variables.each do |variable|
     print "New planet #{variable} > "
     input = gets.chomp
@@ -81,6 +91,9 @@ def add_planet(solar_system)
   solar_system.add_planet(Planet.new(*new_planet_args))
 end 
  
+# Method valid_planet_arg? is very basic input validation for creating a new planet.
+# -input: the user-supplied value for a planet's variable
+# -variable: the planet data that is being filled
 def valid_planet_arg? (input, variable)
   case variable 
   when "name","color","fun fact"
@@ -92,23 +105,14 @@ def valid_planet_arg? (input, variable)
   end
 end
 
+# Method distance_between_two prompts for two planets as input and 
+# calculates the distance between them, returning the value.
 def distance_between_two(solar_system)
   print "What's the first planet? > "
-  first_planet = find_planet_with_catch(gets.chomp, solar_system)
+  first_planet = solar_system.find_planet_by_name(gets.chomp)
   print "What's the second planet? > "
-  second_planet = find_planet_with_catch(gets.chomp, solar_system)
-  puts "The distance between #{first_planet.name} and #{second_planet.name}: #{solar_system.distance_between(first_planet,second_planet)} km"
+  second_planet = solar_system.find_planet_by_name(gets.chomp)
+  puts ">>>>>>> The distance between #{first_planet.name} and #{second_planet.name}: #{solar_system.distance_between(first_planet,second_planet)} km"
 end
-
-def find_planet_with_catch(name, solar_system)
-  planet = solar_system.find_planet_by_name(name)
-  while planet == nil 
-    print "No planet with that name found. Try again. > "
-    name = gets.chomp
-    planet = solar_system.find_planet_by_name(name)
-    end
-  return planet
-end
-
 
 main
