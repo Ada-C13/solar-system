@@ -57,8 +57,9 @@ def main
 
     elsif user_choice == "DETAILS"
       puts "Which planet would you like to know more about?"
+      puts solar_system.list_planets
       user_planet_search = gets.chomp.downcase
-      solar_system.find_planet_by_name(user_planet_search)
+      puts solar_system.find_planet_by_name(user_planet_search).summary
 
     elsif user_choice == "ADD PLANET"
       puts "What would you like to call your new planet?"
