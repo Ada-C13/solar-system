@@ -34,7 +34,7 @@ describe 'SolarSystem' do
     it 'returns planet info when valid planet is provided' do
       earth_found = solar_system.find_planet_by_name('Earth')
 
-      expect(earth_found).must_equal earth.summary
+      expect(earth_found).must_equal earth
     end
   end
 
@@ -42,7 +42,6 @@ describe 'SolarSystem' do
     it 'returns correct distance between planets' do
       distance_between_earth_jupiter = solar_system.distance_between(earth, jupiter)
       distance_between_pluto_earth = solar_system.distance_between(pluto, earth)
-
 
       expect(distance_between_earth_jupiter).must_equal 25
       expect(distance_between_pluto_earth).must_equal 55
