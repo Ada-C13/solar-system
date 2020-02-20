@@ -19,7 +19,7 @@ class Planet
   end
 
   def summary
-    return "#{self.name} is a #{self.color} planet that weighs #{self.mass_kg} kg and is #{self.distance_from_sun_km} km from the sun.\nFun fact about #{self.name}: #{self.fun_fact}\n.................."
+    return "#{self.name} is a #{self.color} planet that weighs #{self.mass_kg} kg and is #{self.distance_from_sun_km} km from the sun.\nFun fact about #{self.name}: #{self.fun_fact}"
   end
 
 end
