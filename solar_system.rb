@@ -40,12 +40,14 @@ class SolarSystem
   end
   
   def distance_between(planet1, planet2)
-    value_planet1 = 0
-    value_planet2 = 0
-    
+    value_planet1 = nil
+    value_planet2 = nil
+    # Varibles to downcase to case sentive case.
     planet1 = planet1.downcase
     planet2 = planet2.downcase
+    # A look to iterate over the planets intances.
     for index in (0...@planets.length)
+      # Sending the value to value one and value two. 
       if @planets[index].name.downcase == planet1
         value_planet1 = @planets[index].distance_from_sun_km
       end
@@ -53,6 +55,13 @@ class SolarSystem
         value_planet2 = @planets[index].distance_from_sun_km
       end
     end
+    
+    # Raise an error if one the values is nil.
+    if (value_planet1 && value_planet2) == nil
+      raise "Sorry! We could not find one of the values, try again." 
+    else
+    # Return the difference between the distance planets.
     return value_planet1 - value_planet2
+    end
   end
 end
