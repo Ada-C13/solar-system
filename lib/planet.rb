@@ -12,7 +12,7 @@ class Planet
     end
 
     @distance_from_sun_km = distance_from_sun_km
-    until @mass_kg > 0
+    until @distance_from_sun_km > 0
       print "Please enter a distance from sun greater than 0: "
       @distance_from_sun_km = gets.chomp.to_f
     end
