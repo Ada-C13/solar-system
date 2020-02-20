@@ -17,25 +17,6 @@ def prompt_new_planet
 end
 
 def main
-  # earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-  # venus = Planet.new("Venus", "yellow", 4.8675e24, 67.24, "Venus is sometimes called Earth's sister planet.")
-  # puts earth.summary
-  # puts venus.summary
-  # solar_system = SolarSystem.new("Sol")
-  # earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-  # solar_system.add_planet(earth)
-  # pluto = Planet.new('Pluto', 'varied, grey-orange', 1.30900e22, 5.906e9, 'Named after the Roman god of the underworld')
-  # solar_system.add_planet(pluto)
-  
-
-  # # list = solar_system.list_planets
-  # # puts list
-  # found_planet = solar_system.find_planet_by_name("Earth")
-  # # puts found_planet
-  # puts found_planet.summary
-
-  # p distance = solar_system.distance_between("earth", "pluto")
-
   solar_system = SolarSystem.new("Sol")
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
   pluto = Planet.new('Pluto', 'varied, grey-orange', 1.30900e22, 5.906e9, 'Named after the Roman god of the underworld')
@@ -46,7 +27,7 @@ def main
   saturn = Planet.new('Saturn', 'yellow', 5.683e26, 1.433e9, 'Saturn has the largest and most complex rings of any planet in our solar system')
   uranus = Planet.new('Uranus', 'light blue', 8.681e25, 2.877e9, 'Uranus rotates at an almost 90-degree angle from the plane of its orbit')
   neptune = Planet.new('Neptune', 'blue', 1.024e26, 4.503e9, 'Neptune was the first planet located through mathematical calculations')
-  solar_system.add_planet(earth) # add earth Object into the @planets array
+  solar_system.add_planet(earth)
   solar_system.add_planet(pluto)
   solar_system.add_planet(mercury)
   solar_system.add_planet(venus)
@@ -57,7 +38,6 @@ def main
   solar_system.add_planet(neptune)
 
   continue = true
-
   while continue == true
     options = ["List planets", "Planet details", "Add planet", "Exit"]
     
@@ -73,7 +53,7 @@ def main
     elsif choose == 2 # Planet details
       puts "Which planet you want to know more about? Please provide its name:"
       planet_name = gets.chomp.capitalize
-      planet = solar_system.find_planet_by_name(planet_name) # return the planet object or raise Error if that's not an option
+      planet = solar_system.find_planet_by_name(planet_name) 
       puts planet.summary
     elsif choose == 3 # Add planet
       created_new_planet = prompt_new_planet
@@ -82,7 +62,7 @@ def main
       puts "See you next time!"
     end
 
-    puts "Do you want to startover?[y/n]?"
+    puts "Do you want to continue?[y/n]?"
     answer = gets.chomp.upcase
     if answer != "Y"
       continue = false
