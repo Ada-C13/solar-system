@@ -32,9 +32,8 @@ def add_new_planet(solar)
   puts "\nDo you confirm you want to add this planet? (Y/N) "
   confirm = gets.chomp.upcase
   if confirm == "Y" || confirm == "YES"
-    puts "New planet added."
     solar.add_planet(new_planet)
-    show_planet(new_planet)
+    puts "New planet added."
   else 
     puts "Ok, new planet was NOT added."
   end
@@ -53,13 +52,15 @@ end
 
 def planet_distance(solar)
   print "Name of first planet: "
-  first_planet = gets.chomp.downcase
+  first_planet = gets.chomp.capitalize
   print "name of second planet: "
-  second_planet = gets.chomp.downcase
-  first  = solar.find_planet_by_name(first_planet)
-  second = solar.find_planet_by_name(second_planet)
-  distance_planets = (first.distance_from_sun_km - second.distance_from_sun_km).abs
-  return distance_planets
+  second_planet = gets.chomp.capitalize
+  begin
+    distance = solar.distance_between(first_planet, second_planet)
+    puts "The distance between #{first_planet} and #{second_planet} is #{distance} Km."
+  rescue
+    puts "At least one of the planets is not in the system."
+  end
 end
 
 def add_all_planets(solar)
@@ -103,7 +104,7 @@ def main
       when "add planets", "ap", "a"
         add_new_planet(solar)
       when "distance", "dist", "d"
-        puts planet_distance(solar)
+        planet_distance(solar)
       when "exit", "x", "quit", "q", "e"
         choice = "exit"
       else
@@ -113,5 +114,3 @@ def main
 end
 
 main
-
-

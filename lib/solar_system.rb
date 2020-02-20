@@ -16,7 +16,7 @@ class SolarSystem
   end
 
   def list_planets
-    list = "Planets orbiting #{@star_name} the Solar System \n"
+    list = "Planets orbiting the #{@star_name}\n"
     @planets.each_with_index do |planet, index|
       list += "#{index + 1}. #{planet.name}\n"
     end
@@ -29,6 +29,13 @@ class SolarSystem
       raise ArgumentError.new("No planets with this name.")
     end
     return found.first
+  end
+
+  def distance_between(planet1_name, planet2_name)
+    first  = find_planet_by_name(planet1_name)
+    second = find_planet_by_name(planet2_name)
+    distance = (first.distance_from_sun_km - second.distance_from_sun_km).abs
+    return distance
   end
 
 end
