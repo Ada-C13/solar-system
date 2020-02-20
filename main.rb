@@ -9,8 +9,6 @@ def display_options_to_do_next
     puts "Type 'add planet' if you wnat to add a new planet"
 end
 
-
-
 def planet_detial(solar_system_instance)
     puts "what planet would you like to dispay detial"
     user_input = gets.chomp
@@ -21,8 +19,6 @@ def planet_detial(solar_system_instance)
         puts planet.summary()
     end
 end 
-
-
 
 def add_new_planet(solar_system_instance)
     puts "what is the planet's name"
@@ -41,7 +37,6 @@ def add_new_planet(solar_system_instance)
     new_planet =  solar_system_instance.find_planet_by_name(name)
     puts new_planet.summary
 end 
-
 
 def main
     solar_system = SolarSystem.new('Sol')
