@@ -18,8 +18,8 @@ class Planet
 
   def summary 
     # Change lines
-    if @fun_fact.length > 53
-      @fun_fact = "#{@fun_fact[0..53]}\n#{@fun_fact[54..@fun_fact.length - 1]}"
+    if @fun_fact.length > 58
+      @fun_fact = "#{@fun_fact[0..58]}\n#{@fun_fact[59..@fun_fact.length - 1]}"
     end 
 
     titles = ["Name", "Color", "Distance from sun", "Mass", "Fun fact"]
