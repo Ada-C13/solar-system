@@ -1,0 +1,5 @@
+class SolarSystem 
+  
+
+
+end
