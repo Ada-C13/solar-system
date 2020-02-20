@@ -14,34 +14,26 @@ class SolarSystem
     planet_string_list = "Planets orbiting #{@star_name} \n"
 
     @planets.each_with_index do |indiv_planet,i| 
-      planet_string_list += "#{i+1}.  #{indiv_planet.name}\n"
+      planet_string_list += "#{i+1}.  #{indiv_planet.name.capitalize}\n"
     end
 
     return planet_string_list
   end
-
-  def which_planet_details
-    puts "What planet do you want to know about (Mars, or Saturn)?"
-    user_planet_choice = gets.chomp
-
-    @planets.each do|planet|
-      if planet.name.downcase == user_planet_choice.downcase 
-         return planet.summary
-      end
-    # if user_planet_choice.downcase == "mars" || user_planet_choice.downcase == "saturn"        
-    #   found_planet = find_planet_by_name(user_planet_choice)
-    #   puts found_planet.summary
-    # else
-    #   puts "You did not input a valid response."
-    end
-  end
-
+  
   def find_planet_by_name(name)
     @planets.each do|planet|
       if planet.name.downcase == name.downcase 
-         return planet
+        return planet
       end
     end
+  end
+
+  def which_planet_details
+    puts "What planet do you want to know about (Mars, or Saturn, or one you created)?"
+    user_planet_choice = gets.chomp
+
+    return find_planet_by_name(user_planet_choice.downcase).summary
+
   end
 
 end 
