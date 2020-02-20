@@ -10,8 +10,6 @@ def main
   mercury = Planet.new("Mercury", "grey", 5.972e24, 1.496e8, "Liquid silver")
   venus = Planet.new("Venus", "green", 5.972e24, 1.496e8, "Goddess planet")
 
-  # TODO is there a simpler way to do this?
-  # solar_system.add_planet(Planet.name)
   solar_system.add_planet(earth)
   solar_system.add_planet(mars)
   solar_system.add_planet(jupiter)
@@ -19,7 +17,6 @@ def main
   solar_system.add_planet(venus)
 
   user_planet = ""
-
   user_input = ""
 
   puts "Welcome to the Solar System Info Machine!\n"
@@ -43,9 +40,15 @@ def main
       new_name = gets.chomp.capitalize
       puts "Color:"
       new_color = gets.chomp.capitalize
-      puts "Thanks!"
+      puts "Mass - kg (Ex: 5.972e24):"
+      new_mass = gets.chomp
+      puts "Distance from sun - km (Ex: 1.496e8):"
+      new_distance = gets.chomp
+      puts "Fun fact:"
+      new_fun_fact = gets.chomp
+      puts "Congratulations on submitting a new planet!"
 
-      new_planet = Planet.new(new_name, new_color, 5.972e24, 1.496e8, "Rage against the machine")
+      new_planet = Planet.new(new_name, new_color, new_mass, new_distance, new_fun_fact)
       solar_system.add_planet(new_planet)
     when "D" # Exit
       puts "Have fun storming the solar system!"
@@ -54,16 +57,6 @@ def main
       puts "You entered an invalid answer. Try again."
     end
   end
-
-  # found_planet is an instance of class Planet
-  # puts found_planet
-  # => #<Planet:0x00007fe7c2868ee8>
-
-  # puts found_planet.summary
-  # => Earth is a blue-green planet ...
-
-  # puts "#{earth.name}: is #{earth.fun_fact}."
-  # puts "#{mars.name} is #{mars.fun_fact}."
 end
 
 main

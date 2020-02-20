@@ -25,9 +25,5 @@ class SolarSystem
     @planets.each do |planet|
       return planet if planet.name == planet_name.capitalize
     end
-    # case planet.capitalize
-    # when Planet.name
-    #   return Planet
-    # end
   end
 end
