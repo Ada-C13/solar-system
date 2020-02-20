@@ -98,7 +98,7 @@ def main
         puts solar.list_planets
       when "planet details", "pd", "p"
         planet_details(solar)
-      when "add planets", "ap", "a"
+      when "add planet", "ap", "a"
         add_new_planet(solar)
       when "distance", "dist", "d"
         planet_distance(solar)
