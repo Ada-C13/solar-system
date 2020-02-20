@@ -13,6 +13,6 @@ class Planet
   end
 
   def summary
-    "#{name.upcase}\nColor: #{color}\nMass: #{mass_kg}kg\nDistance from sun: #{distance_from_sun_km}km\nFun fact: #{fun_fact}"
+    "\n#{name.upcase}\nColor: #{color}\nMass: #{mass_kg}kg\nDistance from sun: #{distance_from_sun_km}km\nFun fact: #{fun_fact}"
   end
 end
