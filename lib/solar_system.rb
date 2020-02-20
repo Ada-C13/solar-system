@@ -1,3 +1,4 @@
+require_relative "planet" 
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -46,3 +47,8 @@ class SolarSystem
     return distance
   end
 end
+
+
+
+
+s1 = SolarSystem.new("hello")
