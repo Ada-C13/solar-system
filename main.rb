@@ -60,3 +60,5 @@ def main
 end
 
 main
+
+# final example from teachers https://github.com/AdaGold/solar-system/blob/c13-soln/main.rb

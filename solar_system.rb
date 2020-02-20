@@ -26,4 +26,16 @@ class SolarSystem
       return planet if planet.name == planet_name.capitalize
     end
   end
+
+  #example from final from teachers
+  # def find_planet_by_name(query)
+  #   # Note: We can use planets, @planets, or self.planets
+  #   first_found_planet = planets.find do |planet|
+  #     planet.name.upcase == query.upcase
+  #   end
+  #   return first_found_planet
+  #   # We return the first found planet, even if there's another matching one.
+  #   # If there is no found planet, then we will return nil.
+  # end
+
 end
