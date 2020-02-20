@@ -32,6 +32,6 @@ describe 'solar_system: find_planet_by_name' do
     expect(sol.find_planet_by_name("SATURN")).must_equal nil
   end
   it "finds two planets of same name" do
-    expect(sol.find_planet_by_name("Earth")).must_be_instance_of String
+    expect {sol.find_planet_by_name("Earth")}.must_raise ArgumentError 
   end
 end
