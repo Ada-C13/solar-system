@@ -15,7 +15,7 @@ describe "Planet" do
     @planet = Planet.new("Earth", "blue", 100, 200, "has one moon")
     
     # assert - i expect this outcome
-    expect(@planet).must_be_instance_of Planet
+    expect { @planet }.must_be_instance_of Planet
   end
   
   # edge cases
@@ -30,7 +30,9 @@ end
 describe "Solar System" do
   # nominal cases
   it "initializes instances of solar systems" do
-  
+   @sun = SolarSystem.new("Sun")
+
+   expect { @sun }.must_be_instance_of SolarSystem
   end
 
   it "adds planets to @planets instance variable" do

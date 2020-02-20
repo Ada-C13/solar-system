@@ -45,9 +45,19 @@ def valid_input(user_choice)
   return user_choice
 end
 
+def valid_number(user_number)
+  user_number = gets.chomp.to_f
+  until user_number > 0
+    puts "We need a positive number here!"
+    print "Please enter a number greater than 0 ==> "
+    user_number = gets.chomp.to_f
+  end
+  return user_number.to_f
+end
+
 # returns a valid word to trigger control loop
+# used in get_choice
 def user_wants_to(user_choice_parameter)
-  
   case user_choice_parameter
   when "1", "1.", "list", "list planets"
     return "list"
@@ -70,10 +80,10 @@ def user_added_planet
   color = gets.chomp
   
   print "\nWhat is #{name}'s mass? ==> "
-  mass = gets.chomp.to_f
+  mass = valid_number(mass)
   
   print "\nHow far is #{name} away from the Sun? ==> "
-  distance = gets.chomp.to_f
+  distance = valid_number(mass)
   
   print "\nWhat's a fun fact about #{name}? ==> "
   fun_fact = gets.chomp
@@ -107,6 +117,11 @@ def main
       print "\nWhat planet do you want to know more about? ==> "
       user_planet = gets.chomp
       found_planet = sun.find_planet_by_name(user_planet)
+      # if found planet is not in solar system yet, let them know!
+      
+      # what gets returned if the planet is empty, and how to handle that so it doesn't interfere with summary method
+      
+      #otherwise, print the summary of that planet object
       puts found_planet.summary
       
       user_choice = get_choice

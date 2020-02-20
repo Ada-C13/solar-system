@@ -9,7 +9,7 @@ class Planet
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
     
-    # add error checking for numbers
+    # add ArgumentError for numbers
     if @mass_kg < 0 || @distance_from_sun_km < 0
       raise(ArgumentError, "Mass or distance cannot be negative")
     end

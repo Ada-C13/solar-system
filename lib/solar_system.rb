@@ -30,25 +30,15 @@ class SolarSystem
     found_planet = @planets.select { |planet| planet.name == planet_parameter } # returns an array
 
       if found_planet.empty?
-        return "#{planet_parameter} has yet to be discovered in #{@star_name}."
+        # something great!
       end
 
       if found_planet.length > 1
-      # do something else cool
+      puts "There's more than one planet with that name; I'll just show you the first one!"
+      return found_planet[0]
       end
 
     return found_planet[0]
   end
 
 end
-
-      # @planets.each do |planet|
-      # if planet.name == planet_parameter
-      #   found_planet << planet
-      # else
-      #   return "#{planet} is not in #{@star_name}."
-      # end 
-
-      # if found_planet.length > 1
-      #   # what should it do in case of more than one planet with the same name??
-      # else
