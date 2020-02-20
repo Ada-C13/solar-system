@@ -21,9 +21,9 @@ def main
   # build a command line interface (CLI) to allow a user to interact with your classes
   puts "------------------------------------"
   puts "Hi there, welcome to solar system!"
-  puts "You have a couple options to begin with:\n1. List Planets \n2. Planet Details \n3. Add a planet \n4. Exit"
+  puts "You have a couple options to begin with:\n1. List Planets \n2. Planet Details \n3. Add a planet \n4. Calculate Distance between two planets  \n5.Exit"
   options = gets.chomp.to_i 
-  while options != 4
+  while options != 5
     case options 
     when 1
       puts solar_system.list_planets
@@ -45,13 +45,18 @@ def main
       new_planet = Planet.new(planet_name, planet_color, planet_mass_kg, planet_distance, planet_fun_fact)
       solar_system.add_planet(new_planet)
     when 4
-      break
+      puts "Please pick two planets"
+      puts "Planet 1:"
+      planet1 = gets.chomp
+      puts "Planet 2:"
+      planet2 = gets.chomp
+      puts "Distance between #{planet1} and #{planet2} is #{solar_system.distance_between(planet1, planet2)}"
     else
       puts "invalid option, please try again!"
     end 
 
     puts "------------------------------------"
-    puts "What would you like to do next?\n1. List Planets \n2.Planet Details \n3.Add a planet \n4.Exit"
+    puts "What would you like to do next?\n1. List Planets \n2.Planet Details \n3.Add a planet \n4. Calculate Distance between two planets  \n5.Exit"
     options = gets.chomp.to_i
   end 
 end
