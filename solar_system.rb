@@ -19,4 +19,24 @@ class SolarSystem
     end 
     return declaration
   end
+
+  def case_checker
+    @planets.each do |planet|
+      if planet.name == name.capitalize 
+        return planet 
+      end
+    end 
+    return raise ArgumentError, "Planet not recognizable." 
+  end 
+
+  def find_planet_by_name(name)
+    found_planet = @name.case_checker
+  end 
+
+  def planet_details(planet)
+    if gets.chomp == @name
+      @planet.summary
+    end
+  end
 end
+
