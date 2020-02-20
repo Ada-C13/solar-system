@@ -28,6 +28,6 @@ class SolarSystem
       end
     end
 
-    return "no such planet"
+    return nil
   end
 end

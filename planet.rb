@@ -17,3 +17,4 @@ class Planet
     return "Planet #{@name} is #{@color}.\nIt is located #{@distance_from_sun_km} km from the Sun.\nIts mass is #{@mass_kg} kg.\nFun fact about #{@name}: #{@fun_fact}.\n"
   end
 end
+

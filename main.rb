@@ -6,7 +6,7 @@ def ask_for_planet(solar_system)
   asked_planet = gets.chomp
   found_planet = solar_system.find_planet_by_name(asked_planet)
 
-  if found_planet != "no such planet"
+  if found_planet
     return found_planet.summary
   else
     return "planet not found"
@@ -37,7 +37,7 @@ end
 
 def main
   earth = Planet.new("Earth", "blue-green", 5.972e24, 1.496e8, "only planet known to support life")
-  mars = Planet.new("Mars", "red", 6.39e23, 2.496e8, "red planet colonized by Ilon Mask")
+  mars = Planet.new("Mars", "red", 6.39e23, 2.496e8, "red planet which is planned to be colonized by Ilon Mask")
   venus = Planet.new("Venus", "pink", 4.867e24, 3.496e8, "the second planet from the Sun")
   saturn = Planet.new("Saturn", "gray", 5.683e26, 4.496e8, "second largest planet in our solar system")
 
