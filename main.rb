@@ -9,12 +9,12 @@ end
 def create_planet(solar)
   puts "Let's create a planet for this solar system..."
   puts "What is the name of this planet?"
-  planet_name = gets.chomp
+  planet_name = gets.chomp.capitalize
   puts "What is the color of this planet?"
   planet_color = gets.chomp
-
   puts "What is the mass in kg of this planet?"
   planet_mass = gets.chomp.to_i
+
   while planet_mass <= 0
     puts "That is not a valid input. What is the mass in kg of this planet?"
     planet_mass = gets.chomp.to_i
@@ -22,8 +22,9 @@ def create_planet(solar)
 
   puts "What is the distance in km between the named star and this planet?"
   planet_distance = gets.chomp.to_i
+
   while planet_distance <= 0
-    puts "That is not a valid input. What is the distance in km between the named star and this planet?"
+    puts "That is not a valid input. What is the distance in km between the sun and this planet?"
     planet_distance = gets.chomp.to_i
   end
 
@@ -36,7 +37,7 @@ def create_planet(solar)
 end
 
 def display_options
-  puts "What's next? Enter 1, 2, 3, 4, or 5 for the following options."
+  puts "\nWhat's next? Enter 1, 2, 3, 4, or 5 for the following options."
   puts "1. list planets"
   puts "2. add planet"
   puts "3. planet details"
@@ -67,7 +68,7 @@ end
 # create main method to run the interactive program
 def main
   display_intro
-  solar = SolarSystem.new('Sol')
+  solar = SolarSystem.new("Sol")
   venus = Planet.new("Venus", "yellow", 4.87e24, 108e6, "Venus is the hottest planet in the Solar System.")
   earth = Planet.new("Earth", "blue-green", 5.972e24, 1.496e8, "Only planet known to support life.")
   mars = Planet.new("Mars", "red", 6.42e23, 249e6, "Sustains life? We may be heading there soon.")
@@ -83,17 +84,17 @@ def main
   control_loop = true
   while control_loop
     display_options
-    choice = gets.chomp.to_i
+    choice = gets.chomp
     case choice
-      when 1
+      when "1",  "1.", "list planets", "1. list planets"
         puts solar.list_planets
-      when 2
+      when "2", "2.", "add planet", "2. add planet"
         create_planet(solar)
-      when 3
+      when "3", "3.", "planet details", "3. planet details"
         get_planet_details(solar)
-      when 4
+      when "4", "4.", "distance between planets", "4. distance between planets"
         puts run_distance_between(solar)
-      when 5
+      when "5", "5.", "exit", "quit", "5. exit"
         control_loop = false
     end
   end
