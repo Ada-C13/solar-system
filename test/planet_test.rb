@@ -11,12 +11,12 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 describe "create two different instances of the Planet class" do
 	it "raises an ArgumentError if mass_kg is not greater than zero" do
-		planet = Planet.new('Earth', 'blue-green', 0, 1.496e8, 'the only planet known to support life')
-		expect(planet).must_raise ArgumentError
+		earth = Planet.new("Earth", "blue-green", 0, 1.496e8, "Earth is the only planet known to support life")
+		expect(earth).must_raise ArgumentError
 	end
 
 	it "raises an ArgumentError if distance_from_sun_km is not greater than zero" do
-		planet = Planet.new('Earth', 'blue-green', 5.972e24, 0, 'the only planet known to support life')
-		expect(planet).must_raise ArgumentError
+		earth = Planet.new("Earth", "blue-green", 5.972e24, 0, "Earth is the only planet known to support life")
+		expect(earth).must_raise ArgumentError
 	end
 end
