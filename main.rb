@@ -12,12 +12,12 @@ def main
 
   input = ""
   until input == "exit"
-    puts "\nWhat would you like to do?
-    1. planet [details]
-    2. [list] planets
-    3. [add] planet
-    4. [distance] between planets
-    5. exit"
+    puts "\nWhat would you like to do?"
+    options = ["planet [details]", "[list] planets", "[add] planet", "[distance] between planets", "exit"]
+
+    options.each_with_index do |option, i|
+      puts "#{i + 1}. #{option}"
+    end
 
     input = gets.chomp.downcase
 
