@@ -19,7 +19,7 @@ def main
     - Add a Planet('A')
     - Exit('Q')
     Message
-    print "\t=> "
+    print "=> "
     user_input = gets.chomp.upcase
 
     case user_input
@@ -29,8 +29,10 @@ def main
       puts "Enter the name of the planet you want more info for:"
       print "=> "
       planet = milky_way.find_planet_by_name(gets.chomp)
-      if planet == false
-        puts "There is no planet with that name"
+      if planet == 0
+        puts "There is no planet with that name!"
+      elsif planet == 2
+        puts "There are multiple planets with that name!"
       else
         puts planet.summary
       end
@@ -55,9 +57,7 @@ def main
     else
       puts "Error: Invalid input\n\n"
     end
- 
   end
-  
 end
 
 main

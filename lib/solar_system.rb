@@ -21,25 +21,12 @@ class SolarSystem
 
   def find_planet_by_name(find_planet)
     matching_planets = @planets.select { |current_planet| current_planet.name.casecmp(find_planet) == 0 }
-    
-    return matching_planets.length 
-    
     if matching_planets.length == 1
       return matching_planets.first
     elsif matching_planets.length > 1
-      return "There are multiple planets with that name"
+      return 2
     else
-      puts "Theres no planets with that name"
-      main
-    end
-  end
-
-  def distance_between(planet1, planet2)
-    start_planet = find_planet_by_name(planet1)
-    end_planet = find_planet_by_name(planet2)
-
-    if start_planet.distance_from_sun_km > end_planet.distance_from_sun_km
-      puts "#{planet1} is further than #{planet2}"
+      return 0
     end
   end
 end
