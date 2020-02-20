@@ -9,6 +9,7 @@ def main
     mercury = Planet.new("Mercury", "yellow-blue", 3.285e23, 5.791e7, "Your weight on Mercury would be 38% of your weight on Earth.")
     pluto = Planet.new("Pluto", "grey-orange", 1.30900e22, 5.906e9, "Named after the Roman god of the underworld.")
 
+
     solar_system = SolarSystem.new("Sol")
     solar_system.add_planet(earth)
     solar_system.add_planet(mars)
@@ -16,18 +17,19 @@ def main
     solar_system.add_planet(mercury)
     solar_system.add_planet(pluto)
     list = solar_system.list_planets
-    
+    puts list
+
     until directions != "exit"
         puts "Came to learn about planets, did yah? What would you like to do? Choose from list planets, planet details, add new planet, or exit."
         user_choice = gets.chomp.downcase
         if directions == "list planets"
             user_choice = solar_system.list_planets
-            puts list
+        return list
         elsif directions == "planet details"
             puts "Which planet are you interested in?"
             planet_selected = gets.chomp.downcase
-            puts planet_details.summary
-         elsif directions == "add new planet"
+        return planet_details.summary
+        elsif directions == "add new planet"
             solar_system.add_planet(planet_addition)
         else
             puts "That's all folks!"
