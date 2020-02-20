@@ -1,16 +1,16 @@
 #main.rb
-require_relative "planet"
-require_relative "solar_system"
+require_relative "lib/planet"
+require_relative "lib/solar_system"
 
-mercury = Planet.new('Mercury', 'yellow-blue', 3.285e23, 5.791e7, 'Mercury is the fasest planet. Completing a full circle around the sun in 88 days')
+mercury = Planet.new('Mercury', 'yellow-blue', 3.285e23, 5.791e7, 'Mercury is the fastest planet -- a year on Mercury is 88 Earth days')
 
-venus = Planet.new('Venus', 'yellow', 4.867e24, 1.089e8, 'Venus is the hottest planet in our solar system')
+venus = Planet.new('Venus', 'yellow', 4.867e24, 1.089e8, 'Venus is the second brightest object in the night sky')
 
-earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Earth is the only planet not named after a god')
 
-mars = Planet.new("Mars", "Red", 6.39e23, 1.496e8, "Mars gets its red color from iron oxide")
+mars = Planet.new("Mars", "Red", 6.39e23, 1.496e8, 'Mars gets its red color from iron oxide')
 
-jupiter = Planet.new('Jupiter', 'white and red', 1.898e27, 7.779e8, 'Jupiter is almost twice as large as any other planet in the solar system')
+jupiter = Planet.new('Jupiter', 'white and red', 1.898e27, 7.779e8, 'The Great Red Spot is a huge storm on Jupiter. It\'s gone on for 350 years and could fit three Earths inside of it')
 
 saturn = Planet.new('Saturn', 'yellow', 5.683e26, 1.433e9, 'Saturn has the largest and most complex rings of any planet in our solar system')
 
@@ -18,7 +18,7 @@ uranus = Planet.new('Uranus', 'light blue', 8.681e25, 2.877e9, 'Uranus rotates a
 
 neptune = Planet.new('Neptune', 'blue', 1.024e26, 4.503e9, 'Neptune was the first planet located through mathematical calculations')
 
-pluto = Planet.new('Pluto', 'varied, grey-orange', 1.30900e22, 5.906e9, 'Named after the Roman god of the underworld')
+pluto = Planet.new('Pluto', 'varied, grey-orange', 1.30900e22, 5.906e9, 'Pluto sometimes has an atmosphere -- its atmosphere will freeze and thaw depending on where Pluto is in its orbit around the Sun')
 
 planets = [mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto]
 
@@ -29,14 +29,14 @@ planets.each do |planet|
 end
 
 def planet_details(system)
-  puts "Which planet would you like to learn about?"
+  puts "\nWhich planet would you like to learn about?"
   planet_name = gets.chomp.capitalize
   return system.find_planet_by_name(planet_name)&.summary
 end
 
 def add_planet_from_user(system)
   planet_reqs = %w(name color mass distance fact)
-  puts "Okay! You wanted to add a planet."
+  puts "\nOkay! You wanted to add a planet."
   planet_reqs.map! do |req|
     print "What's your planets #{req}?: "
     req = gets.chomp
@@ -50,7 +50,7 @@ def add_planet_from_user(system)
 end
 
 def find_difference_using_input(system)
-  puts "Let's find out the difference of the distances of two planets from the #{system.star_name}!"
+  puts "\nLet's find out the difference of the distances of two planets from the #{system.star_name}!"
 
   print "What's the name of the first planet?: "
   planet_one = gets.chomp
@@ -70,7 +70,7 @@ def main(system)
 
   until answer == "exit"
     puts "\nWhat would you like to do next?:"
-    puts "List Planets: list\nPlanet details: details\nAdd Planet: add\nFind Difference of Distance from the #{system.star_name}: difference\nExit: exit"
+    puts "\nList Planets: list\nPlanet details: details\nAdd Planet: add\nFind Difference of Distance from the #{system.star_name}: difference\nExit: exit"
     answer = gets.chomp
     case answer
       when "list"

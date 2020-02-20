@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 
-require_relative 'main.rb'
+require_relative '../main.rb'
 
 describe "Planet class constructor method" do
   it "accepts valid input and requires all parameters" do
@@ -23,11 +23,5 @@ end
 
 describe do
   it do
-
   end
-
-
-
-
-
 end

@@ -12,7 +12,7 @@ class SolarSystem
   end
   
   def list_planets
-    list = "Planets orbiting #{star_name}"
+    list = "\nPlanets orbiting #{star_name}"
     planets.length.times do |i|
       list += "\n#{i+1}. #{planets[i].name}"
     end
