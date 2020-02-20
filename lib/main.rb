@@ -56,27 +56,39 @@ def main
   solar_system.add_planet(uranus)
   solar_system.add_planet(neptune)
 
-  continue = y
-  options = ["List planets", "Planet details", "Add planet", "Exit"]
-  puts "What do you what to do?"
-  options.each_with_index do |option, i|
-    puts "#{i + 1} #{option}"
-  end
-  choose = gets.chomp.to_i
-  if choose == 1 # List planest
-    list = solar_system.list_planets
-    puts list
-  elsif choose == 2 # Planet details
-    puts "Which planet you want to know more about? Please provide its name:"
-    planet_name = gets.chomp.capitalize
-    planet = solar_system.find_planet_by_name(planet_name) # return the planet object or raise Error if that's not an option
-    puts planet.summary
-  elsif choose == 3 # Add planet
-    created_new_planet = prompt_new_planet
-    solar_system.add_planet(created_new_planet)
-  elsif choose == 4 # Exit
-    puts "See you next time!"
+  continue = true
+
+  while continue == true
+    options = ["List planets", "Planet details", "Add planet", "Exit"]
+    
+    puts "What do you what to do?"
+    options.each_with_index do |option, i|
+      puts "#{i + 1} #{option}"
+    end
+    choose = gets.chomp.to_i
+
+    if choose == 1 # List planest
+      list = solar_system.list_planets
+      puts list
+    elsif choose == 2 # Planet details
+      puts "Which planet you want to know more about? Please provide its name:"
+      planet_name = gets.chomp.capitalize
+      planet = solar_system.find_planet_by_name(planet_name) # return the planet object or raise Error if that's not an option
+      puts planet.summary
+    elsif choose == 3 # Add planet
+      created_new_planet = prompt_new_planet
+      solar_system.add_planet(created_new_planet)
+    elsif choose == 4 # Exit
+      puts "See you next time!"
+    end
+
+    puts "Do you want to startover?[y/n]?"
+    answer = gets.chomp.upcase
+    if answer != "Y"
+      continue = false
+    end
   end
 end
+
 
 main
