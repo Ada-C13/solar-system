@@ -1,8 +1,9 @@
 require 'pry'
 
 class Planet
-	attr_reader :name, :color, :fun_fact
-	attr_accessor :mass_kg, :distance_from_sun_km
+	attr_reader :name, :color, :fun_fact, :mass_kg, :distance_from_sun_km
+	
+	# Creates constructor for planet attributes
 	def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
 		@name = name
 		@color = color
@@ -11,10 +12,12 @@ class Planet
 		@fun_fact = fun_fact
 	end
 
+	# Creates summary using details about the planet
 	def summary()
 		return "#{@name} is a wonderful planet! It is a beautiful #{color} color! #{@name} has a mass of #{mass_kg} kg and is #{distance_from_sun_km} km from the sun. You might be surprised to find that: #{fun_fact}."
 	end
 
+	# Verifies that mass is in numbers
 	def mass_kg=(value)
 		begin
 			value > 0
@@ -26,6 +29,7 @@ class Planet
 		end
 	end 
 
+	# Verifies that distance is in numbers
 	def distance_from_sun_km=(value)
 		begin
 			value > 0
