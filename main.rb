@@ -31,9 +31,9 @@ def main
 
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life.')
   solar_system.add_planet(earth)
-  pluto = Planet.new('Pluto', 'purple', 6.546e33, 2.456e7, 'Pluto is purple - sounds good!')
+  pluto = Planet.new('Pluto', 'purple', 6.546e33, 2.456e7, 'Pluto is purple - just kidding!')
   solar_system.add_planet(pluto)
-  mars = Planet.new('Mars', 'red', 7.453e45, 1.345e5, 'Mars is red because I said!')
+  mars = Planet.new('Mars', 'red', 7.453e45, 1.345e5, 'Mars is like a Mars Bar?')
   solar_system.add_planet(mars)
   mercury = Planet.new('Mercury', 'dark gray', 3.235e33, 48.208e1, 'Mercury has wrinkles!' )
   solar_system.add_planet(mercury)
