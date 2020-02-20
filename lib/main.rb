@@ -100,7 +100,6 @@ def main
   puts "Welcome to our Super Solar System Simulator!"
   puts "You've got a few choices ahead of you..."
   
-  user_choice = ""
   user_choice = get_choice
 
   # control loop
@@ -127,7 +126,6 @@ def main
     
     while user_choice == "add"
       sun.add_planet(user_added_planet)
-      
       puts "Cool! Thanks for adding that planet to our solar system!"
       
       user_choice = get_choice
