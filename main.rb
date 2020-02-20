@@ -1,9 +1,9 @@
 require_relative "planet.rb"
 require_relative "solar_system.rb"
 
-# instantiates instance of solar system & planets
+
+# instantiates instance of solar system, instantiates planets, & adds planets to solar system
 def instantiate_sun_and_planets
-  # instantiate solar system - add planets
   sun = SolarSystem.new("Sun")
   
   mars = Planet.new("Mars", "red", 6.4171e23, 230000000, "Mars has 2 moons: Phobos and Deimos")
@@ -12,7 +12,6 @@ def instantiate_sun_and_planets
   venus = Planet.new("Venus", "yellow", 4.87e24, 108e6, "Venus has no moons 😢 ")
   earth = Planet.new("Earth", "blue-green", 5.972e24, 1.496e8, "Earth has one singular and beautiful moon")
   
-  # add planets to Sun
   sun.add_planet(mars)
   sun.add_planet(jupiter)
   sun.add_planet(mercury)
@@ -22,7 +21,8 @@ def instantiate_sun_and_planets
   return sun
 end
 
-# display/list choices to user
+
+# display/list choices to user - ensure validity, provide lots of options for entry
 def get_choice
   puts "\nHere are your choices:\n1. List planets\n2. Get planet details\n3. Add a planet to the system\n4. Exit"
   print "\nSo what'll it be? ==> "
@@ -30,6 +30,7 @@ def get_choice
   user_choice = valid_input(user_choice)
   return user_wants_to(user_choice)
 end
+
 
 # checks user input is a valid one
 def valid_input(user_choice)
@@ -45,6 +46,7 @@ def valid_input(user_choice)
   return user_choice
 end
 
+
 # checks for positive number for mass and distance
 def valid_number(user_number)
   user_number = gets.chomp.to_f
@@ -55,6 +57,7 @@ def valid_number(user_number)
   end
   return user_number.to_f
 end
+
 
 # returns a valid word to trigger control loop (used in get_choice method)
 def user_wants_to(user_choice_parameter)
@@ -70,6 +73,7 @@ def user_wants_to(user_choice_parameter)
   end 
 end
 
+
 # method for adding a planet to the solar system (taking user input as arguments)
 def user_added_planet
   print "What is this planet's name? ==> "
@@ -82,7 +86,7 @@ def user_added_planet
   mass = valid_number(mass)
   
   print "\nHow far is #{name} away from the Sun? ==> "
-  distance = valid_number(mass)
+  distance = valid_number(distance)
   
   print "\nWhat's a fun fact about #{name}? ==> "
   fun_fact = gets.chomp
@@ -92,6 +96,7 @@ def user_added_planet
   return user_planet
 end
 
+
 # main command line interface
 def main
   sun = instantiate_sun_and_planets
@@ -100,6 +105,7 @@ def main
   puts "Welcome to our Super Solar System Simulator!"
   puts "You've got a few choices ahead of you..."
   
+  # displays options, checks input for validity and case
   user_choice = get_choice
 
   # control loop
